@@ -5,7 +5,7 @@ function SignUp() {
   return (
     <div className='flex w-full h-screen'>
       {/* Left Side */}
-      <div className='w-full flex flex-col items-center justify-center p-8 bg-red-400'>
+      <div className=' w-[60vw] flex flex-col items-center justify-center p-8'>
         <h1 className='text-2xl font-bold mb-4'>Get Started Now</h1>
         
         <form className='w-full max-w-sm'>
@@ -35,14 +35,14 @@ function SignUp() {
               id='password'
               placeholder='Enter Password'
               type='password'
-              className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+              className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
             />
           </div>
 
           <div className='flex items-center mb-4'>
-            <input type='checkbox' id='terms' className='h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded' />
+            <input type='checkbox' id='terms' className='h-4 w-4 text-gren-900 focus:ring-green-900 border-gray-300 rounded' />
             <label htmlFor='terms' className='ml-2 text-sm text-gray-600'>
-              I agree to the <span className='underline'>terms &amp; policy</span>
+              I agree to the <span className='underline cursor-pointer hover:text-green-950'>terms &amp; policy</span>
             </label>
           </div>
 
@@ -66,9 +66,8 @@ function SignUp() {
         </div>
       </div>
 
-      {/* Right Side */}
-      <div className='md:flex w-[80%] items-center justify-between'>
-        <img src='/login.png' alt='Login' className='w-[65%] h-[100vh]' />
+      <div className='md:flex  items-center justify-between'>
+        <img src='/login.png' alt='Login' className='h-[100vh] w-[50vw] object-fill' />
       </div>
     </div>
   );

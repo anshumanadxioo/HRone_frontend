@@ -2,14 +2,9 @@ import React from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 function SignUp() {
   return (
-<<<<<<< HEAD
     <div className='flex w-full h-screen'>
       {/* Left Side */}
-      <div className='w-full flex flex-col items-center justify-center p-8 bg-red-400'>
-=======
-    <div className='flex w-full h-screen responsive-main_div'>
-      <div className=' md:w-[60vw] flex flex-col items-center justify-center p-8'>
->>>>>>> 527635dbfafe78922fd0da39bfed97822ccda8a0
+      <div className='w-full flex flex-col items-center justify-center p-8 bg-white-400'>
         <h1 className='text-2xl font-bold mb-4'>Get Started Now</h1>
         
         <form className='w-full max-w-sm'>

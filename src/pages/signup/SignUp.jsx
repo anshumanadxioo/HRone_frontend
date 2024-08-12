@@ -1,11 +1,15 @@
 import React from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
-
 function SignUp() {
   return (
+<<<<<<< HEAD
     <div className='flex w-full h-screen'>
       {/* Left Side */}
       <div className='w-full flex flex-col items-center justify-center p-8 bg-red-400'>
+=======
+    <div className='flex w-full h-screen responsive-main_div'>
+      <div className=' md:w-[60vw] flex flex-col items-center justify-center p-8'>
+>>>>>>> 527635dbfafe78922fd0da39bfed97822ccda8a0
         <h1 className='text-2xl font-bold mb-4'>Get Started Now</h1>
         
         <form className='w-full max-w-sm'>
@@ -52,22 +56,28 @@ function SignUp() {
           >
             Sign Up
           </button>
-        </form>
-
-        <div className='mt-6'>
-          <div className='flex items-center justify-center space-x-4'>
-            
-              <FaGoogle className='text-2xl mr-2' />
-                Sign in with Google
-        
+          <div className='flex'>
+            <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
+            <div className='mt-[18px]'><p>or</p></div>
+            <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
+         </div>
+        <div className='mt-6 flex justify-between responsive-signinoption-res'>
+            <div className='flex ml-2 pb-2'>
+            <FaGoogle className='text-2xl mr-2 ' />
+             Sign in with Google
+            </div>
+          <div className='flex mr-4 ml-4'>
               <FaApple className='text-2xl mr-2' />
               Sign in with Apple
           </div>
         </div>
+          <p className='ml-20 mt-8'>Have an account? <span className='text-blue-800'>Login In</span></p>
+        </form>
       </div>
 
-      <div className='md:flex  items-center justify-between'>
-        <img src='/login.png' alt='Login' className='h-[100vh] w-[50vw] object-fill' />
+      <div className='md:flex md: items-center md:justify-between'>
+        <img src='/login.png' loading='lazy' alt='Login' className=' md:h-[100vh] md:w-[50vw] 
+        lg:object-fill' />
       </div>
     </div>
   );

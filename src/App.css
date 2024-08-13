@@ -1,8 +1,11 @@
 /* Responsive code for the Signup page */
-@media (max-width:799px){
+@media (max-width:850px){
   .responsive-main_div{
     flex-direction: column;
     background-color: rgb(232, 232, 235);
+  }
+  .responsive-button-col{
+    flex-direction: column;
   }
 }
 @media (max-width:400px){
@@ -11,4 +14,6 @@
     align-items: center;
     justify-content: center;
   }
+ 
+
 }

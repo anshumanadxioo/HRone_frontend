@@ -12,9 +12,9 @@ const UserFeed = () => {
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
           <div>
-            <p className="font-bold text-lg">John Doe</p>
-            <p className="text-gray-600">Position Title</p>
-            <p className="text-gray-600">Company Inc.</p>
+            <p className="font-bold text-lg">Ankur</p>
+            <p className="text-gray-600">software intern</p>
+            <p className="text-gray-600">Adixoo Brand</p>
             <p className="text-gray-500 text-sm mb-2">2 hours ago</p>
           </div>
         </div>
@@ -38,7 +38,7 @@ const UserFeed = () => {
             </div>
           </div>
           <div className="flex space-x-2">
-          <FaHandsClapping  className=" text-white px-4 py-2 rounded"/>
+          <FaHandsClapping  className=" black-white px-4 py-2 rounded"/>
           <FaRegComments className=" text-white px-4 py-2 rounded" />
 
 

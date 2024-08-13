@@ -7,7 +7,12 @@ export default {
   theme: {
     extend: {
       backgroundColor:{
-        customGreen :'#357864'
+        customGreen :'#357864',
+        lightpink: "#fcefec",
+      },
+      colors:{
+        orangered:"#ff674d"
+
       }
     },
   },

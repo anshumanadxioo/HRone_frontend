@@ -5,9 +5,9 @@ function LoginPage() {
   return (
     <div className='flex w-full h-screen'>
       {/* Left Side */}
-      <div className='w-full flex flex-col items-center justify-center p-8 bg-gray-200'>
+      <div className='w-full flex flex-col items-center justify-center p-8 bg-white-200'>
         <form className='w-full max-w-sm'>
-          {/* Added Text Lines */}
+         
           <h1 className='text-2xl font-semibold mb-2' style={{
             width: '252px',
             height: '48px',
@@ -27,12 +27,12 @@ function LoginPage() {
             fontWeight: '500',
             lineHeight: '24px',
             textAlign: 'left',
-            opacity: '1' // Ensure this is visible
+            opacity: '1' 
           }}>
             Enter the credentials to access
           </h5>
 
-          {/* Form Fields */}
+         
           <div className='mb-4'>
             <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-1'>Email Address</label>
             <input
@@ -76,7 +76,7 @@ function LoginPage() {
               height: '35.4px',
               background: '#3A5B22',
               border: '1px solid #3A5B22',
-              opacity: '1' // Ensure visibility
+              opacity: '1' 
             }}
           >
             Login

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 function SignUp() {
   const [formData, setformData] = useState({
     name:"",
@@ -17,6 +18,10 @@ function SignUp() {
 const handleSubmit=(e)=>{
   e.preventDefault();
 console.log(formData)
+}
+const navigate=useNavigate();
+const handleClick=()=>{
+ navigate('/login');
 }
   return (
     <div className='flex w-full h-screen responsive-main_div'>
@@ -108,7 +113,9 @@ console.log(formData)
               Sign in with Apple
           </div>
         </div>
-          <p className='ml-20 mt-2'>Have an account? <span className='text-blue-800 cursor-pointer'>Login In</span></p>
+          <p className='ml-20 mt-2'>Have an account?
+             <span className='text-blue-800 cursor-pointer' onClick={handleClick}>Login In</span>
+             </p>
         </form>
       </div>
 

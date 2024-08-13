@@ -7,7 +7,7 @@ function UserInfo() {
     <div className='ml-[64px] bg-customGreen text-white p-4'>
      <div className='flex justify-between'>
      <div>
-     <p className='text-3xl font-bold'>Hello, Anshuman!</p>
+     <p className='text-2xl font-bold'>Hello, Anshuman!</p>
      <p className='mt-2'>Hope you are having the great day</p>
      </div>
      <div className='bg-orange-800 text-white rounded w-[44px] h-[36px]'>

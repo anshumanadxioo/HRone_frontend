@@ -3,8 +3,8 @@ import { FaHome, FaInbox, FaEnvelope, FaUser } from 'react-icons/fa';
 
 function Sidebar() {
   return (
-    <div className='min-h-screen absolute'>
-      <div className='w-[60px] h-[100vh] bg-white shadow-lg rounded-lg flex flex-col items-center py-4'>
+    <div className='absolute'>
+      <div className='w-[60px] min-h-[100vh] bg-slate-100  shadow-lg rounded-lg flex flex-col items-center py-4'>
         {/* Home Icon */}
         <div className='p-3 rounded-lg hover:bg-gray-200 flex items-center justify-center'>
           <FaHome className='text-gray-600 hover:text-gray-900 text-xl' />
@@ -24,7 +24,7 @@ function Sidebar() {
         <div className='flex-grow'></div>
 
         {/* Profile Icon */}
-        <div className='p-3 rounded-full bg-slate-300  mb-4 flex items-center justify-center'>
+        <div className='p-3 rounded-full bg-slate-300  mb-14 flex items-center justify-center'>
           <FaUser className='text-gray-700 text-xl' />
         </div>
       </div>

@@ -2,6 +2,7 @@
 @media (max-width:799px){
   .responsive-main_div{
     flex-direction: column;
+    background-color: rgb(232, 232, 235);
   }
 }
 @media (max-width:400px){

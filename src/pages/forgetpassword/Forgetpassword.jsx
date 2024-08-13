@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Forgetpassword() {
+  const [password, setpassword] = useState({
+    newpassword:'',
+    confirmpassword:''
+  })
+  const handleChange=(e)=>{
+    setpassword((oldstate)=>({
+      ...password,
+      [e.target.name]:e.target.value
+    }))
+  }
+  const handleSubmit=(e)=>{
+   e.preventDefault();
+   console.log(password,"password")
+  }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
       <div className='w-full max-w-md bg-white p-8 rounded-lg shadow-lg'>
@@ -16,7 +30,11 @@ function Forgetpassword() {
           <input
             type='password'
             placeholder='Enter new password'
-            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            required
+            name='newpassword'
+            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
+            value={password.newpassword}
+            onChange={handleChange}
           />
         </div>
         <div className='mb-6'>
@@ -26,12 +44,16 @@ function Forgetpassword() {
           <input
             type='password'
             placeholder='Confirm new password'
-            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500'
+            required
+            name='confirmpassword'
+            className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
+            onChange={handleChange}
           />
         </div>
         <button
           type='button'
           className='w-full py-2 px-4 bg-green-900 text-white font-semibold rounded-lg shadow-md '
+          onClick={handleSubmit}
         >
           Reset Now
         </button>

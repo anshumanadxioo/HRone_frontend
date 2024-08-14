@@ -1,14 +1,13 @@
 import React from 'react';
-import { FiX } from 'react-icons/fi'; // Import the cross icon
 
 const SettingPage = ({ onBackClick }) => {
   return (
     <div className='p-4 bg-white text-black'>
       <button
-        className='text-black mb-4'
+        className='text-black mb-4 px-4 py-2 bg-gray-200 rounded'
         onClick={onBackClick}
       >
-        <FiX className='text-2xl' />
+        Back
       </button>
       <h1>Settings</h1>
       <h1>Settings</h1>

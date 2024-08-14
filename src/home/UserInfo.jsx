@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { FiSettings } from 'react-icons/fi';
-import SettingPage from '../pages/settings/SettingPage'; // Import the SettingPage component
+import SettingPage from '../pages/settings/SettingPage';
 
 function UserInfo() {
-  const [showSettings, setShowSettings] = useState(false);
+  const [showSettings, setShowSettings] = useState(true);
 
   const handleSettingsClick = () => {
     setShowSettings(true);

@@ -5,8 +5,8 @@ import { IoFilterOutline } from "react-icons/io5";
 
 const UserFeed = () => {
   return (
-    <div>
-      <div className="relative ml-4 mt-[220px]">
+    <div className='pl-2'>
+      <div className="relative ml-4 mt-[220px] ">
         <p className="text-xl font-semibold mb-4">Feed</p>
         <IoFilterOutline className="absolute top-0 right-0 mr-1  text-2xl " />
       </div>
@@ -20,9 +20,9 @@ const UserFeed = () => {
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
           <div className='mt-4'>
-            <p className="font-bold text-lg">Ankur Chourasiya</p>
-            <p className="text-gray-600">software intern</p>
-            <p className="text-gray-600">Adixoo Brand</p>
+            <p className="font-bold text-base mb-[-3px]">Ankur Chourasiya</p>
+            <p className="text-gray-600  text-sm mb-[-3px]">Adixoo Brand</p>
+            <p className="text-gray-600 text-sm mb-[-3px]">software intern</p>
             <p className="text-gray-500 text-sm mb-2">2 hours ago</p>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Inbox = () => {
            
 
 
-        <div className="w-full max-w-96 mx-0 ">
+        <div className="w-full max-w-96 mx-0 pl-6">
         <p className="text-xl font-semibold  mt-[175px] mb-2 ">Inbox</p>
 
 
@@ -49,7 +49,7 @@ const Inbox = () => {
                         onChange={onChange}
                         value={date}
                     />
-                    <div className="mt-4 flex space-x-6">
+                    <div className="mt-4 flex  space-x-6">
                         <div className="flex items-center">
                             <span className="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
                             <p className="text-sm">Today</p>
@@ -66,11 +66,13 @@ const Inbox = () => {
                             <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
                             <p className="text-sm">Absent</p>
                         </div>
-                        {/* <div className="flex items-center">
-                            <span className="w-3 h-3 rounded-full bg-gray-500 mr-2"></span>
-                            <p className="text-sm">Holiday</p>
-                        </div> */}
+                      
                     </div>
+                    <div className="flex justify-center mt-2">
+                            <span className="w-3 h-3 rounded-full bg-gray-500 mr-2 mt-1"></span>
+                            <p className="text-sm">Holiday</p>
+                        </div>
+                        
                 </div>
             </div>
 
@@ -98,12 +100,12 @@ const Inbox = () => {
 
 
             {/* yesterday balanace */}
-            <div className=" bg-white shadow- rounded-lg">
-            <h1 className="text-xl mt-8 pl-2 ml-2">Yesterday's Attendance</h1>
+            <div className=" bg-white shadow- rounded-lg h-auto pl-4">
+            <h1 className="text-xl mt-8 ">Yesterday's Attendance</h1>
 
                 <div className="mt-4">
                     <div className="flex w-80">
-                        <div className="text-center">
+                        <div className="text-center ">
                             <p className="text">10:30 PM</p>
                             <p className="text-sm text-gray-500">Working Hours</p>
                         </div>

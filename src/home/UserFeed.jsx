@@ -1,18 +1,26 @@
 import React from 'react';
 import { FaHandsClapping } from "react-icons/fa6";
 import { FaRegComments } from "react-icons/fa";
+import { IoFilterOutline } from "react-icons/io5";
+
 const UserFeed = () => {
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-      <div className="flex flex-col items-start mb-4 w-full max-w-lg px-4 mt-12 shadow-2xl">
+    <div>
+      <div className="relative ml-4 mt-[220px]">
+        <p className="text-xl font-semibold mb-4">Feed</p>
+        <IoFilterOutline className="absolute top-0 right-0 mr-1  text-2xl " />
+      </div>
+
+
+      <div className="flex flex-col items-start ml-2   w-full max-w-lg px-4  shadow-2xl ">
         <div className="flex items-center mb-2">
           <img
             src="/temp-profile.jpg"
             alt="Profile"
             className="w-12 h-12 rounded-full object-cover mr-4"
           />
-          <div>
-            <p className="font-bold text-lg">Ankur</p>
+          <div className='mt-4'>
+            <p className="font-bold text-lg">Ankur Chourasiya</p>
             <p className="text-gray-600">software intern</p>
             <p className="text-gray-600">Adixoo Brand</p>
             <p className="text-gray-500 text-sm mb-2">2 hours ago</p>
@@ -31,30 +39,20 @@ const UserFeed = () => {
         <div className="mt-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex space-x-4 text-gray-600">
-
               {/* we just have to add our desired icon here  */}
-              <span>Cheers: 123</span> 
-              <span>Comments: 45</span> 
+              <span>Cheers: 123</span>
+              <span>Comments: 45</span>
             </div>
           </div>
-          <div className="flex space-x-2">
-          <FaHandsClapping  className=" black-white px-4 py-2 rounded"/>
-          <FaRegComments className=" text-white px-4 py-2 rounded" />
-
-
-         
-            
+          <div className="flex items-center space-x-4 bg-pink-100 p-4 rounded-lg shadow-md w-full h-16">
+            <FaHandsClapping className="text-black text-4xl p-2 rounded-full bg-white shadow-sm" />
+            <span className="text-black font-semibold">Cheers</span>
+            <FaRegComments className="text-black text-4xl p-2 rounded-full bg-white shadow-sm" />
+            <span className="text-black font-semibold">Comment</span>
           </div>
-
         </div>
       </div>
-
-
-
     </div>
-
-
-
   );
 }
 

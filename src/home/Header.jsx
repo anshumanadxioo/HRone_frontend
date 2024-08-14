@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiSitemap } from 'react-icons/bi';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { MdNotificationAdd } from 'react-icons/md';
+import Notification from '../pages/notification/Notification'; 
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSlider = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className='bg-green-900 text-white p-2 flex items-center justify-between relative'>
       <div className='text-lg font-semibold'>
@@ -25,8 +32,11 @@ function Header() {
       </div>
 
       <div className='absolute right-4 top-1/2 transform -translate-y-1/2'>
-        <MdNotificationAdd className='text-xl' />
+        <MdNotificationAdd className='text-xl' onClick={toggleSlider} />
       </div>
+
+
+      <Notification isOpen={isOpen} toggleSlider={toggleSlider} />
     </div>
   );
 }

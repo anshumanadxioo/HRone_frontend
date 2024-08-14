@@ -36,9 +36,9 @@ export default function HighlightAccordion() {
   return (
     <>
       <div className="ml-[64px] max-w-[26vw]">
-        <p className="text-xl font-semibold mb-3 mt-3 ml-2">Highlights</p>
+        <p className="text-xl font-semibold mb-3  ml-2">Highlights</p>
         <div className="space-y-4 h-[80vh] overflow-y-auto">
-          {/* Accordion Item 1 */}
+          {/* Accordion Item 1 */}  
           <Accordion
             open={open === 1}
             icon={<Icon id={1} open={open} />}

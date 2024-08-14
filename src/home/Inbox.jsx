@@ -15,20 +15,24 @@ const Inbox = () => {
 
 
     return (
+        <>
+           
 
 
-        <div className="w-full max-w-md mx-auto p-4">
+        <div className="w-full max-w-96 mx-0 ">
+        <p className="text-xl font-semibold  mt-[175px] mb-2 ">Inbox</p>
+
+
 
             {/* inbox  */}
 
-            <div className="p-6 bg-white shadow-xl rounded-lg mt-44 h-30">
-                <h1 className="text-xl">Inbox</h1>
-                <div className="flex items-center w-full mt-2">
-                    <IoIosNotifications className="text-6xl mr-4" />
+            <div className=" bg-white shadow-xl rounded-lg  h-30">
+                <div className="flex items-center w-full">
+                    <IoIosNotifications className="text-5xl ml-2" />
 
-                    <div className="">
-                        <h2 className="text-2xl">5</h2>
-                        <p className="text-lg mt-1">Pending Tasks</p>
+                    <div className=" ml-2">
+                        <h2 className="text-xl">5</h2>
+                        <p className="text-lg">Pending Tasks</p>
                     </div>
                 </div>
             </div>
@@ -40,11 +44,11 @@ const Inbox = () => {
             <div className="mt-6 w-full p-6 bg-white shadow-2xl rounded-lg ">
                 <h2 className="text-xl font-semibold mb-4">Calendar</h2>
                 <div>
-                <Calendar
-            className="react-calendar border rounded-lg shadow-sm"
-            onChange={onChange}
-            value={date}
-        />
+                    <Calendar
+                        className="react-calendar border rounded-lg shadow-sm"
+                        onChange={onChange}
+                        value={date}
+                    />
                     <div className="mt-4 flex space-x-6">
                         <div className="flex items-center">
                             <span className="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
@@ -62,30 +66,31 @@ const Inbox = () => {
                             <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
                             <p className="text-sm">Absent</p>
                         </div>
-                        <div className="flex items-center">
+                        {/* <div className="flex items-center">
                             <span className="w-3 h-3 rounded-full bg-gray-500 mr-2"></span>
                             <p className="text-sm">Holiday</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
-
-
-
-
             </div>
+
+
+
 
 
 
             {/* leave balance */}
-            <h1 className="text-xl mt-8 ">Leave balance</h1>
-            <div className="flex items-center w-full mt-2  ">
-                <FcLeave  className="text-6xl " />
-                <div className="">
-
-                    <h2 className="text-base">Your leave balance is </h2>
-                    <h2 className="">{10}</h2>
+            <div className="bg-white shadow-lg border rounded-lg mt-4 pl-2">
+                <h1 className="text-xl ml-2 ">Leave balance</h1>
+                <div className="flex items-center w-full mt-2">
+                    <FcLeave className="text-6xl" />
+                    <div className="ml-4">
+                        <h2 className="text-base font-semibold">Your leave balance is</h2>
+                        <h2 className="text-xl font-bold">{10}</h2>
+                    </div>
                 </div>
             </div>
+
 
 
 
@@ -93,8 +98,9 @@ const Inbox = () => {
 
 
             {/* yesterday balanace */}
-                <h1 className="text-xl mt-8">Yesterday's Attendance</h1>
             <div className=" bg-white shadow- rounded-lg">
+            <h1 className="text-xl mt-8 pl-2 ml-2">Yesterday's Attendance</h1>
+
                 <div className="mt-4">
                     <div className="flex w-80">
                         <div className="text-center">
@@ -124,6 +130,7 @@ const Inbox = () => {
 
 
         </div>
+        </>
     );
 }
 

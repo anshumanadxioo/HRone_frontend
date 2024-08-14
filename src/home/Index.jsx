@@ -14,9 +14,8 @@ function Index() {
         <Header/>
         <Sidebar/>
         <UserInfo/>
-        <div className="flex items-center justify-between w-full h-screen p-4 mt-20 ">
+        <div className="flex items-center justify-between w-full h-screen p-4  ">
         <HighlightAccordion/>
-       
         <UserFeed/>
         <Inbox />
         </div>

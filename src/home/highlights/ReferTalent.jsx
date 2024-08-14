@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 
-function ReferTalent() {
+function ReferTalent({ isOpen, toggleReferTalent }) {
   const [referal, setReferal] = useState({
     candidate_name: '',
     gender: '',
@@ -10,10 +9,6 @@ function ReferTalent() {
     phonenno: '',
     comments: ''
   });
-  const navigate=useNavigate();
-  const handleClose = () => {
-      navigate('/home')
-  };
 
   const handleChange = (e) => {
     setReferal((oldState) => ({
@@ -33,12 +28,16 @@ function ReferTalent() {
   };
 
   return (
-    <div className='relative w-full max-w-md mx-auto p-4 bg-white shadow-lg rounded '>
-      <div className='flex justify-between items-center mb-4'>
-        <div className='underline text-xl'>REFER SOMEONE</div>
+    <div
+      className={`fixed top-0 right-0 h-full w-[40vw] p-6 bg-white shadow-lg z-50 transform ${
+        isOpen ? 'translate-x-0' : 'translate-x-full'
+      } transition-transform duration-300 ease-in-out`}
+    >
+      <div className='relative'>
+        <div className=' text-xl mb-4'>REFER SOMEONE</div>
         <div
-          onClick={handleClose}
-          className='cursor-pointer w-6 h-6 flex justify-center items-center relative'
+          onClick={toggleReferTalent}
+          className='cursor-pointer w-6 h-6 absolute right-0 top-2'
         >
           {/* Cross sign */}
           <div className='absolute w-6 h-[3px] bg-black rotate-45' />
@@ -46,7 +45,8 @@ function ReferTalent() {
         </div>
       </div>
       <p className='mb-4'>We'll send a link to the email and phone number you provide here.</p>
-      <form onSubmit={handleSubmit} className='space-y-4'>
+      
+      <form onSubmit={handleSubmit} className='space-y-4 h-[calc(100vh-220px)] overflow-y-auto custom-scrollbar'>
         <div>
           <label className='block text-sm font-medium mb-1' htmlFor='candidate_name'>Candidate Name</label>
           <input
@@ -67,7 +67,6 @@ function ReferTalent() {
             value={referal.gender}
             onChange={handleChange}
             className='w-full border border-gray-300 rounded p-2'
-            style={{ overflow: 'hidden' }}
           >
             <option value='' disabled>Select gender</option>
             <option value='male'>Male</option>
@@ -123,14 +122,17 @@ function ReferTalent() {
             className='w-full border border-gray-300 rounded p-2'
           />
         </div>
+      </form>
+      
+      <div className="fixed bottom-2 right-[4vw] w-[33vw] px-4">
         <button
           type='submit'
           disabled={!isFormValid()}
-          className={`w-full py-2 rounded ${isFormValid() ? 'bg-blue-500 text-white hover:bg-blue-600' : 'bg-gray-300 text-gray-700 cursor-not-allowed'}`}
+          className={`w-full py-2 rounded ${isFormValid() ? 'bg-green-900 text-white hover:bg-green-900' : 'bg-customGreen opacity-[50%] text-white cursor-not-allowed'}`}
         >
           Send
         </button>
-      </form>
+      </div>
     </div>
   );
 }

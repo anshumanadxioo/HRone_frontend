@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -6,11 +7,12 @@ import {
 } from "@material-tailwind/react";
 import { MdOutlineCelebration } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
-import { FaBullhorn } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
-
+import { FaBullhorn, FaCalendarCheck, FaHandHoldingHeart } from "react-icons/fa";
+import ReferTalent from "./ReferTalent";
+import { FaHandHolding } from "react-icons/fa6";
+import { BiCalendarEvent, BiSolidParty } from "react-icons/bi";
+import './scrollbar.css'
 function Icon({ id, open }) {
- 
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -26,19 +28,22 @@ function Icon({ id, open }) {
 }
 
 export default function HighlightAccordion() {
-  const [open, setOpen] = React.useState(0);
+  const [open, setOpen] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleReferTalent = () => {
+    setIsOpen(!isOpen);
+    console.log("calling the function");
+  };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
-  const navigate=useNavigate();
-  const handleClick=()=>{
-    navigate('/highlights/refertalent')
-  }
+
   return (
     <>
-      <div className="ml-[64px] max-w-[26vw]">
-        <p className="text-xl font-semibold mb-3  ml-2">Highlights</p>
-        <div className="space-y-4 h-[80vh] overflow-y-auto">
-          {/* Accordion Item 1 */}  
+      <div className="ml-[64px] h-[calc(100vh-50px)] overflow-y-auto custom-scrollbar">
+        <p className="text-[18px] font-semibold mb-3 -ml-3  w-[26vw] px-5 ">Highlights</p>
+        <div className="space-y-4 h-[105vh]   ">
+          {/* Accordion Item 1 */}
           <Accordion
             open={open === 1}
             icon={<Icon id={1} open={open} />}
@@ -50,25 +55,22 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <MdOutlineCelebration className="text-orangered text-4xl mt-[6px] ml-1 absolute left-0 bg-lightpink rounded" />
+                  <BiSolidParty className="text-orangered text-4xl mt-[2px] ml-1 absolute left-0 bg-lightpink rounded" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="ml-7">Today's Celebration</p>
+                  <p className="ml-7 text-sm">Today's Celebration</p>
                   <p className="text-sm text-start ml-7 text-gray-500">0 celebrations</p>
                 </div>
               </div>
             </AccordionHeader>
-            <AccordionBody
-              className={`overflow-hidden ${open === 1 ? "max-h-60" : "max-h-0"} transition-max-height duration-100 ease-in-out`}
-              style={{ transitionDelay: "1ms" }}
-            >
+            <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="flex justify-between">
                 <div className="ml-2">image</div>
                 <p className="text-slate-500 mr-2">No celebration today</p>
               </div>
             </AccordionBody>
           </Accordion>
-          
+
           {/* Accordion Item 2 */}
           <Accordion
             open={open === 2}
@@ -81,25 +83,22 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <SlCalender className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
+                  <BiCalendarEvent className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="ml-6">Team Planned Leaves</p>
+                  <p className="ml-6 text-sm">Team Planned Leaves</p>
                   <p className="text-sm text-start ml-6 text-gray-500">0 Members</p>
                 </div>
               </div>
             </AccordionHeader>
-            <AccordionBody
-              className={`overflow-hidden ${open === 2 ? "max-h-60" : "max-h-0"} transition-max-height duration-100 ease-in-out`}
-              style={{ transitionDelay: "1ms" }}
-            >
+            <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="flex justify-between">
                 <div className="ml-2">image</div>
                 <p className="text-slate-500 mr-2">No planned leaves today</p>
               </div>
             </AccordionBody>
           </Accordion>
-          
+
           {/* Accordion Item 3 */}
           <Accordion
             open={open === 3}
@@ -112,25 +111,22 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <SlCalender className="text-orangered text-4xl mt-[5px] -ml-3 bg-lightpink rounded" />
+                  <FaCalendarCheck className="text-orangered text-4xl mt-[2px] -ml-3 bg-lightpink rounded" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="ml-[2px]">People on Leave Today</p>
-                  <p className="text-sm text-start ml-6 text-gray-500">0 Members</p>
+                  <p className="ml-[3px] text-sm">People on Leave Today</p>
+                  <p className="text-sm text-start ml-1 text-gray-500">0 Members</p>
                 </div>
               </div>
             </AccordionHeader>
-            <AccordionBody
-              className={`overflow-hidden ${open === 3 ? "max-h-60" : "max-h-0"} transition-max-height duration-100 ease-in-out`}
-              style={{ transitionDelay: "1ms" }}
-            >
+            <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="flex justify-between">
                 <div className="ml-2">image</div>
                 <p className="text-slate-500 mr-2">No leave applied for today</p>
               </div>
             </AccordionBody>
           </Accordion>
-          
+
           {/* Accordion Item 4 */}
           <Accordion
             open={open === 4}
@@ -143,33 +139,30 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <FaBullhorn className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
+                  <FaBullhorn className="text-orangered text-4xl mt-[4px] absolute left-0 bg-lightpink rounded" />
                 </div>
                 <div className="flex responsive-button-col">
                   <div className="flex flex-col">
-                    <p className="ml-6">Referrals/IJP</p>
-                    <p className="text-sm text-start ml-6 text-gray-500">0 referrals | 0 IJP</p>
+                    <p className="ml-2 text-sm">Referrals/IJP</p>
+                    <p className="text-sm text-start ml-6 text-gray-500 w-[100px]">0 referrals|0 IJP</p>
                   </div>
-                  <button className="h-[34px] border border-green-900 bg-transparent text-green-900 text-sm lg:ml-[20px] mt-2 px-1 rounded
-                   transition-colors duration-300 hover:bg-green-900 hover:text-white"
-                   onClick={handleClick}
-                   >
-                    ReferTalent
+                  <button
+                    className="h-[30px] w-[100px] border border-green-900 bg-transparent text-green-900 text-sm  mt-1 ml-4 px-1 rounded transition-colors duration-300 hover:bg-green-900 hover:text-white"
+                    onClick={toggleReferTalent}
+                  >
+                    Refer Talent
                   </button>
                 </div>
               </div>
             </AccordionHeader>
-            <AccordionBody
-              className={`overflow-hidden ${open === 4 ? "max-h-60" : "max-h-0"} transition-max-height duration-100 ease-in-out`}
-              style={{ transitionDelay: "1ms" }}
-            >
+            <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="flex justify-between">
                 <div className="ml-2">image</div>
                 <p className="text-slate-500 mr-2">No Referrals/IJP available</p>
               </div>
             </AccordionBody>
           </Accordion>
-          
+
           {/* Accordion Item 5 */}
           <Accordion
             open={open === 5}
@@ -182,18 +175,15 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <SlCalender className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
+                  <FaHandHoldingHeart className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="ml-6">Core Values</p>
+                  <p className="ml-6 text-sm">Core Values</p>
                   <p className="text-sm text-start ml-6 text-gray-500">0 core values</p>
                 </div>
               </div>
             </AccordionHeader>
-            <AccordionBody
-              className={`overflow-hidden ${open === 5 ? "max-h-60" : "max-h-0"} transition-max-height duration-100 ease-in-out`}
-              style={{ transitionDelay: "1ms" }}
-            >
+            <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="flex justify-between">
                 <div className="ml-2">image</div>
                 <p className="text-slate-500 mr-2">No core values</p>
@@ -201,6 +191,7 @@ export default function HighlightAccordion() {
             </AccordionBody>
           </Accordion>
         </div>
+        <ReferTalent isOpen={isOpen} toggleReferTalent={toggleReferTalent} />
       </div>
     </>
   );

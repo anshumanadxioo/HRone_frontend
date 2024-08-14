@@ -17,3 +17,7 @@
  
 
 }
+
+::-webkit-scrollbar-x {
+  display: none;
+}

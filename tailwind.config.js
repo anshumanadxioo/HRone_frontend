@@ -8,10 +8,11 @@ export default {
     extend: {
       backgroundColor:{
         customGreen :'#357864',
-        lightpink: "#fcefec",
+        // lightpink: "#fcefec",
+        lightpink: 'transparent',
       },
       colors:{
-        orangered:"#ff674d"
+        orangered:"#ff664e"
 
       }
     },

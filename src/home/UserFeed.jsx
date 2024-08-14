@@ -10,8 +10,6 @@ const UserFeed = () => {
         <p className="text-xl font-semibold mb-4">Feed</p>
         <IoFilterOutline className="absolute top-0 right-0 mr-1  text-2xl " />
       </div>
-
-
       <div className="flex flex-col items-start ml-2   w-full max-w-lg px-4  shadow-2xl ">
         <div className="flex items-center mb-2">
           <img

@@ -9,12 +9,12 @@ import Inbox from './Inbox'
 
 function Index() {
   return (
-    <div className=' bg-slate-100 w-full'>
+    <div className=' bg-slate-100 w-full h-full fixed'>
 
         <Header/>
         <Sidebar/>
         <UserInfo/>
-        <div className="flex items-center justify-between w-full h-screen p-4  ">
+        <div className="flex items-center justify-between  h-screen px-4 -mt-2  ">
         <HighlightAccordion/>
         <UserFeed/>
         <Inbox />

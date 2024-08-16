@@ -5,13 +5,13 @@ import { IoFilterOutline } from "react-icons/io5";
 
 const UserFeed = () => {
   return (
-    <div className=' overflow-hidden mb-44 '>
-          <div className="pl-2 h-screen ">
-      <div className="relative ml-4 mt-[220px]">
+    <div>
+          <div className="pl-2  ">
+      <div className="relative ml-4">
         <p className="text-xl font-semibold mb-4 ">Feed</p>
         <IoFilterOutline className="absolute top-0 right-0 mr-1 text-2xl" />
       </div>
-      <div className="flex flex-col items-start ml-2 w-full max-w-lg px-4 shadow-2xl overflow-y-auto h-[calc(100vh-220px)]">
+      <div className="flex flex-col items-start ml-2 w-full max-w-lg px-4 shadow-2xl overflow-y-auto h-[calc(100vh-100px)]">
         <div className="flex items-center mb-2">
           <img
             src="/temp-profile.jpg"

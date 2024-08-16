@@ -5,6 +5,8 @@ import SignUp from './pages/signup/SignUp'
 import LoginPage from './pages/login/LoginPage'
 import ReferTalent from './home/highlights/ReferTalent'
 import Index from './home'
+import SocialProfile from './pages/myProfile/SocialProfile'
+import Layout from './Layout'
 
 function App() {
   return (
@@ -14,8 +16,10 @@ function App() {
     <Route path='/signup' element={<SignUp />} />
     <Route path='/login' element={<LoginPage />} />
     <Route path='/forgetpassword' element={<Forgetpassword/>}/>
+      <Route element={<Layout/>}>
     <Route path='/home' element={<Index/>}/>
-    {/* <Route path='/highlights/refertalent'element={<ReferTalent/>}/> */}
+    <Route path='/myprofile/social-profile' element={<SocialProfile/>} />
+    </Route>
     </Routes>
     </>
   )

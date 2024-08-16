@@ -10,7 +10,7 @@ function UserInfo() {
   };
 
   return (
-    <div className='ml-[64px] bg-customGreen text-white p-4'>
+    <div className='ml-[64px]  bg-customGreen text-white p-4'>
       <div className='flex justify-between'>
         <div>
           <p className='text-2xl font-bold'>Hello, Anshuman!</p>

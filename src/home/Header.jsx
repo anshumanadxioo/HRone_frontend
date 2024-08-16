@@ -3,16 +3,20 @@ import { BiSitemap } from 'react-icons/bi';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { MdNotificationAdd } from 'react-icons/md';
 import Notification from '../pages/notification/Notification'; 
+import { useColor } from '../pages/colorcontext/ColorContext';
 
 function Header() {
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSlider = () => {
     setIsOpen(!isOpen);
   };
+  const { color } = useColor();
 
   return (
-    <div className='bg-green-900 text-white p-2 flex items-center justify-between relative'>
+    <div   className='text-white p-2 flex items-center justify-between relative'
+    style={{ backgroundColor: color }}>
       <div className='text-lg font-semibold'>
         ADIXOO BRAND PVT LTD
       </div>
@@ -32,7 +36,7 @@ function Header() {
       </div>
 
       <div className='absolute right-4 top-1/2 transform -translate-y-1/2'>
-        <MdNotificationAdd className='text-xl' onClick={toggleSlider} />
+        <MdNotificationAdd className='text-3xl cursor-pointer' onClick={toggleSlider} />
       </div>
 
 

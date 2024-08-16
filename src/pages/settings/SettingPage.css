@@ -1,0 +1,17 @@
+.custom-checkbox {
+  accent-color: #052e16; 
+  width: .7rem;
+  height: .7rem;
+  transform: scale(1.5);
+}
+
+
+.custom-checkbox:checked {
+  background-color: #052e16;
+  border-color: #052e16;
+}
+
+
+.custom-checkbox:checked::after {
+  color: white;
+}

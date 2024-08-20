@@ -5,7 +5,7 @@ const ColorContext = createContext();
 export const ColorProvider = ({ children }) => {
   const [color, setColor] = useState(() => {
     const savedColor = localStorage.getItem('appliedColor');
-    return savedColor || '#052e16';
+    return savedColor || '#052e16 ';
   });
 
   useEffect(() => {

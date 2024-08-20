@@ -5,7 +5,7 @@ import "./SettingPage.css";
 const SettingPage = ({ isOpenSetting, toggleSliderSetting }) => {
   const [activeTab, setActiveTab] = useState('organization');
   const [checkedItems, setCheckedItems] = useState(Array(7).fill(false));
-  const [selectedColor, setSelectedColor] = useState('#052e16');
+  const [selectedColor, setSelectedColor] = useState('#02563D');
   const { setColor } = useColor();
 
   const itemNames = [
@@ -19,7 +19,7 @@ const SettingPage = ({ isOpenSetting, toggleSliderSetting }) => {
   ];
 
   const colors = [
-    '#052e16',
+    '#02563D',
     '#237DD1',
     '#1D2435',
     '#645788',

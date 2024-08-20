@@ -5,34 +5,15 @@ function LoginPage() {
   return (
     <div className='flex w-full h-screen'>
       {/* Left Side */}
-      <div className='w-full flex flex-col items-center justify-center p-8 bg-white-200'>
+      <div className='w-full flex flex-col items-center justify-center p-8 bg-white'>
         <form className='w-full max-w-sm'>
-         
-          <h1 className='text-2xl font-semibold mb-2' style={{
-            width: '252px',
-            height: '48px',
-            fontFamily: 'Poppins',
-            fontSize: '32px',
-            fontWeight: '500',
-            lineHeight: '48px',
-            textAlign: 'left'
-          }}>
+          <h1 className='text-2xl mb-2 w-[252px] h-[48px] font-poppins text-[32px] font-medium leading-[48px] text-left'>
             Welcome Back
           </h1>
-          <h5 className='mb-4' style={{
-            width: '372px',
-            height: '26.55px',
-            fontFamily: 'Poppins',
-            fontSize: '16px',
-            fontWeight: '500',
-            lineHeight: '24px',
-            textAlign: 'left',
-            opacity: '1' 
-          }}>
+          <h5 className='mb-4 w-[372px] h-[26.55px] font-poppins text-[16px] font-medium leading-[24px] text-left opacity-100'>
             Enter the credentials to access
           </h5>
 
-         
           <div className='mb-4'>
             <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-1'>Email Address</label>
             <input
@@ -40,8 +21,7 @@ function LoginPage() {
               placeholder='Enter Email'
               type='email'
               required
-              className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
-              style={{ borderColor: '#000' }} // Marking with black color for visibility
+              className='w-full px-3 py-2 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
             />
           </div>
 
@@ -52,8 +32,7 @@ function LoginPage() {
               placeholder='Enter Password'
               type='password'
               required
-              className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
-              style={{ borderColor: '#000' }} // Marking with black color for visibility
+              className='w-full px-3 py-2 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
             />
           </div>
 
@@ -67,25 +46,20 @@ function LoginPage() {
               Keep me signed in for 30 days
             </label>
           </div>
-          
+
           <button
             type='submit'
-            className='w-full py-2 px-4 bg-green-900 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
-            style={{
-              width: '404px',
-              height: '35.4px',
-              background: '#3A5B22',
-              border: '1px solid #3A5B22',
-              opacity: '1' 
-            }}
+            className='w-[404px] h-[35.4px] bg-[#3A5B22] border border-[#3A5B22] text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
           >
             Login
           </button>
-          <div className='flex'>
-            <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
-            <div className='mt-[18px]'><p>or</p></div>
-            <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
-         </div>
+          <div className='flex items-center mt-8'>
+            <div className='h-[2px] w-[183px] bg-black'></div>
+            <div className='mx-4'>
+              <p>or</p>
+            </div>
+            <div className='h-[2px] w-[183px] bg-black'></div>
+          </div>
         </form>
 
         <div className='mt-6'>

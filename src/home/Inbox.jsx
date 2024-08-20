@@ -19,7 +19,7 @@ const Inbox = () => {
 
 
 
-<div className="w-full max-w-96 mx-0 pl-6 h-screen overflow-y-auto mt-14">
+<div className="w-full max-w-96 mx-0 pl-6 h-full overflow-y-auto mt-10 ">
       <div className="">
         {/* Inbox */}
         <p className="text-xl font-semibold mb-2">Inbox</p>
@@ -78,8 +78,8 @@ const Inbox = () => {
         </div>
 
         {/* Yesterday's Attendance */}
-        <div className="bg-white shadow-lg rounded-lg h-auto pl-4 mb-6">
-          <h1 className="text-xl mt-8">Yesterday's Attendance</h1>
+        <div className="bg-white shadow-lg rounded-lg h-auto pl-4 pt-[2px] pb-3 ">
+          <h1 className="text-xl pt-2">Yesterday's Attendance</h1>
           <div className="mt-4">
             <div className="flex w-80">
               <div className="text-center">
@@ -96,6 +96,10 @@ const Inbox = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className='h-[420px]'>
+
         </div>
       </div>
     </div>

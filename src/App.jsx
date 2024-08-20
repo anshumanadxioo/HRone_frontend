@@ -18,8 +18,7 @@ function App() {
     <Route path='/forgetpassword' element={<Forgetpassword/>}/>
       <Route element={<Layout/>}>
     <Route path='/home' element={<Index/>}/>
-    <Route path='/myprofile/social-profile' element={<SocialProfile/>} />
-    </Route>
+    {/* <Route path='/highlights/refertalent'element={<ReferTalent/>}/> */}
     </Routes>
     </>
   )

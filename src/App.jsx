@@ -19,6 +19,7 @@ function App() {
       <Route element={<Layout/>}>
     <Route path='/home' element={<Index/>}/>
     {/* <Route path='/highlights/refertalent'element={<ReferTalent/>}/> */}
+    </Route>
     </Routes>
     </>
   )

@@ -4,11 +4,18 @@ import { FaMagnifyingGlass } from 'react-icons/fa6';
 import { MdNotificationAdd } from 'react-icons/md';
 import Notification from '../pages/notification/Notification'; 
 import { useColor } from '../pages/colorcontext/ColorContext';
+import { RiOrganizationChart } from "react-icons/ri";
+import OrganizationChart from '../pages/organizationchart/organizationChart';
 
 function Header() {
+  //chart
+  const [isOpenChart, setIsOpenChart] = useState(false);
+  const toggleChart = () => {
+    setIsOpenChart(!isOpenChart);
+  };
 
+  //notification
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleSlider = () => {
     setIsOpen(!isOpen);
   };
@@ -31,7 +38,7 @@ function Header() {
           />
         </div>
         <div className='ml-8 bg-white text-gray-900 rounded p-2'>
-          <BiSitemap className='text-gray-500' />
+          <RiOrganizationChart  className='text-gray-500 cursor-pointer'   onClick={toggleChart} />
         </div>
       </div>
 
@@ -39,7 +46,7 @@ function Header() {
         <MdNotificationAdd className='text-3xl cursor-pointer' onClick={toggleSlider} />
       </div>
 
-
+      <OrganizationChart isOpenChart={isOpenChart} toggleSliderChart={toggleChart} />
       <Notification isOpen={isOpen} toggleSlider={toggleSlider} />
     </div>
   );

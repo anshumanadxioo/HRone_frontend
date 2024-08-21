@@ -38,7 +38,6 @@ export default function HighlightAccordion() {
   const [birthday, setbirthday] = useState({})
   const toggleReferTalent = () => {
     setIsOpen(!isOpen);
-    console.log("calling the function");
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);

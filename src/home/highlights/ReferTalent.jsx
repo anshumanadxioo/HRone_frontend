@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 
 function ReferTalent({ isOpen, toggleReferTalent }) {
@@ -5,9 +6,10 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
     candidate_name: '',
     gender: '',
     email: '',
-    countrycode: '',
-    phonenno: '',
-    comments: ''
+    country_code: '', 
+    phone_number: '',
+    comments: '',
+    portfolio_url: '' 
   });
 
   const handleChange = (e) => {
@@ -17,14 +19,30 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
     }));
   };
 
+  const reffer_url = `https://tzqnlpfh-3000.inc1.devtunnels.ms/referral`;
+
+
+  const refertalent = async (data) => {
+    try {
+      console.log('Sending data:', data);
+      const response = await axios.post(reffer_url, data);
+      console.log('API Response:', response.data);
+    } catch (err) {
+      console.log('Error details:', err.response ? err.response.data : err.message);
+    }
+  };
+  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(referal);
+    console.log('On submit is clicked');
+    console.log('Form data:', referal);
+    refertalent(referal);
   };
 
   const isFormValid = () => {
-    const { candidate_name, gender, email, countrycode, phonenno } = referal;
-    return candidate_name && gender && email && countrycode && phonenno;
+    const { candidate_name, gender, email, country_code, phone_number, portfolio_url } = referal;
+    return candidate_name && gender && email && country_code && phone_number && portfolio_url;
   };
 
   return (
@@ -34,7 +52,7 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
       } transition-transform duration-300 ease-in-out`}
     >
       <div className='relative'>
-        <div className=' text-xl mb-4'>REFER SOMEONE</div>
+        <div className='text-xl mb-4'>REFER SOMEONE</div>
         <div
           onClick={toggleReferTalent}
           className='cursor-pointer w-6 h-6 absolute right-0 top-2'
@@ -45,7 +63,7 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
         </div>
       </div>
       <p className='mb-4'>We'll send a link to the email and phone number you provide here.</p>
-      
+
       <form onSubmit={handleSubmit} className='space-y-4 h-[calc(100vh-220px)] overflow-y-auto custom-scrollbar'>
         <div>
           <label className='block text-sm font-medium mb-1' htmlFor='candidate_name'>Candidate Name</label>
@@ -60,7 +78,7 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
           />
         </div>
         <div>
-          <label className='block text-sm font-medium mb-1' htmlFor='gender'>Gender</label>
+          <label className='block text-sm font-medium mb-1' htmlFor='gender'>gender</label>
           <select
             id='gender'
             name='gender'
@@ -87,31 +105,31 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
           />
         </div>
         <div>
-          <label className='block text-sm font-medium mb-1' htmlFor='countrycode'>Country Code</label>
+          <label className='block text-sm font-medium mb-1' htmlFor='country_code'>Country Code</label>
           <input
             type='text'
-            id='countrycode'
-            name='countrycode'
-            value={referal.countrycode}
+            id='country_code'
+            name='country_code'
+            value={referal.country_code}
             onChange={handleChange}
             placeholder='Enter country code'
             className='w-full border border-gray-300 rounded p-2'
           />
         </div>
         <div>
-          <label className='block text-sm font-medium mb-1' htmlFor='phonenno'>Phone Number</label>
+          <label className='block text-sm font-medium mb-1' htmlFor='phone_number'>Phone Number</label>
           <input
             type='text'
-            id='phonenno'
-            name='phonenno'
-            value={referal.phonenno}
+            id='phone_number'
+            name='phone_number'
+            value={referal.phone_number}
             onChange={handleChange}
             placeholder='Enter phone number'
             className='w-full border border-gray-300 rounded p-2'
           />
         </div>
         <div>
-          <label className='block text-sm font-medium mb-1' htmlFor='comments'>Comments</label>
+          <label className='block text-sm font-medium mb-1' htmlFor='comments'>comments</label>
           <textarea
             id='comments'
             name='comments'
@@ -122,17 +140,28 @@ function ReferTalent({ isOpen, toggleReferTalent }) {
             className='w-full border border-gray-300 rounded p-2'
           />
         </div>
+        <div>
+          <label className='block text-sm font-medium mb-1' htmlFor='portfolio_url'>Portfolio URL</label>
+          <input
+            type='url'
+            id='portfolio_url'
+            name='portfolio_url'
+            value={referal.portfolio_url}
+            onChange={handleChange}
+            placeholder='Enter portfolio URL'
+            className='w-full border border-gray-300 rounded p-2'
+          />
+        </div>
+        <div className="fixed bottom-2 right-[4vw] w-[33vw] px-4">
+          <button
+            type='submit'
+            disabled={!isFormValid()}
+            className={`w-full py-2 rounded ${isFormValid() ? 'bg-green-900 text-white hover:bg-green-900' : 'bg-customGreen opacity-[50%] text-white cursor-not-allowed'}`}
+          >
+            Send
+          </button>
+        </div>
       </form>
-      
-      <div className="fixed bottom-2 right-[4vw] w-[33vw] px-4">
-        <button
-          type='submit'
-          disabled={!isFormValid()}
-          className={`w-full py-2 rounded ${isFormValid() ? 'bg-green-900 text-white hover:bg-green-900' : 'bg-customGreen opacity-[50%] text-white cursor-not-allowed'}`}
-        >
-          Send
-        </button>
-      </div>
     </div>
   );
 }

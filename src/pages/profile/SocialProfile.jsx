@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Header from '../../home/Header';
-import Sidebar from '../../home/Sidebar';
 import FavoriteSection from "./FavoriteSection";
 import UserProfile from "./UserProfile";
+import { Outlet } from 'react-router-dom';
 
 function SocialProfile() {
  
@@ -10,13 +9,9 @@ function SocialProfile() {
   return (
     <>
       <div>
-        <Header />
-        <Sidebar />
+        <Outlet/>
         <FavoriteSection/>
         <UserProfile/>
-        
-
-        
       </div>
     </>
   );

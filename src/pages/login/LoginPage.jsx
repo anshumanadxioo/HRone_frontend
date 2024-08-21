@@ -1,12 +1,50 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { axoisInstance } from '../../axiosConfig';
 
 function LoginPage() {
+  const [login, setlogin] = useState({
+    email:'',
+    password:''
+  })
+  const[error,setError]=useState('')
+  const navigate=useNavigate();
+  const handleChange=(e)=>{
+    setlogin((oldState)=>({
+      ...oldState,
+      [e.target.name]:e.target.value
+    }))
+  }
+  const get_Login=async(data)=>{
+  try{
+    const res=await axoisInstance.post('/login',data);
+    console.log(res.data.token,"login token");
+    localStorage.setItem('token',res.data.token);
+    navigate('/home')
+  }
+  catch(error){
+   if(error.response){
+    setError(error.response.data.message);
+   }
+   else{
+    setError('An error occured please try again')
+   }
+    
+  }
+  }
+  const handleSubmit=(event)=>{
+   event.preventDefault();
+
+   console.log(login);
+   get_Login(login);
+  }
   return (
     <div className='flex w-full h-screen'>
       {/* Left Side */}
       <div className='w-full flex flex-col items-center justify-center p-8 bg-white'>
-        <form className='w-full max-w-sm'>
+        <form className='w-full max-w-sm' onSubmit={handleSubmit}>
           <h1 className='text-2xl mb-2 w-[252px] h-[48px] font-poppins text-[32px] font-medium leading-[48px] text-left'>
             Welcome Back
           </h1>
@@ -21,7 +59,10 @@ function LoginPage() {
               placeholder='Enter Email'
               type='email'
               required
-              className='w-full px-3 py-2 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
+              className='w-full px-3 py-2 border border-black rounded-lg focus:outline-none  focus:ring-2 focus:ring-green-900'
+              name='email'
+              value={login.email}
+              onChange={handleChange}
             />
           </div>
 
@@ -33,6 +74,9 @@ function LoginPage() {
               type='password'
               required
               className='w-full px-3 py-2 border border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
+              name='password'
+              value={login.password}
+              onChange={handleChange}
             />
           </div>
 
@@ -49,7 +93,11 @@ function LoginPage() {
 
           <button
             type='submit'
-            className='w-[404px] h-[35.4px] bg-[#3A5B22] border border-[#3A5B22] text-white font-semibold rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
+            className={`w-[404px] h-[35.4px] text-white font-semibold rounded-lg shadow-md
+               ${error?'bg-red-600 border border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-900'
+                :'bg-[#3A5B22] border border-[#3A5B22] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
+                } 
+               `}
           >
             Login
           </button>

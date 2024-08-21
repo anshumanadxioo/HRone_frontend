@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Accordion,
   AccordionHeader,
@@ -13,6 +13,7 @@ import { FaHandHolding } from "react-icons/fa6";
 import { BiCalendarEvent, BiSolidParty } from "react-icons/bi";
 import './scrollbar.css'
 import { useColor } from "../../pages/colorcontext/ColorContext";
+import { axoisInstance } from "../../axiosConfig";
 function Icon({ id, open }) {
   return (
     <svg
@@ -33,19 +34,38 @@ export default function HighlightAccordion() {
 
   const [open, setOpen] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [coreValues, setcoreValues] = useState([])
+  const [birthday, setbirthday] = useState({})
   const toggleReferTalent = () => {
     setIsOpen(!isOpen);
     console.log("calling the function");
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
-
+  const ourcore_values=async()=>{
+   try{
+    const response= await axoisInstance.get('/core-values');
+    setcoreValues(response.data);
+   }catch(err){
+    console.log("your error is:-",err.response.data.message)
+   }
+  }
+  const gettingthe_birthday=async()=>{
+   try{
+    const response= await axoisInstance.get('/check-birthdays');
+    setcoreValues(response.data);
+   }catch(err){
+    console.log("your error is:-",err.response.data.message)
+   }
+  }
+  useEffect(()=>{
+    ourcore_values();
+  },[])
   return (
     <>
-      <div className="ml-[64px] h-[calc(100vh-50px)] overflow-y-auto custom-scrollbar">
-        <p className="text-[18px] font-semibold mb-3 -ml-3  w-[26vw] px-5 ">Highlights</p>
-        <div className="space-y-4 h-[105vh]   ">
+      <div className="ml-[64px] h-[100vh]">
+        <p className="text-[18px] font-semibold mb-3 -ml-3 mt-8 px-5 ">Highlights</p>
+        <div className="space-y-4 w-[20vw]">
           {/* Accordion Item 1 */}
           <Accordion
             open={open === 1}
@@ -146,11 +166,11 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex responsive-button-col">
                   <div className="flex flex-col">
-                    <p className="ml-2 text-sm">Referrals/IJP</p>
+                    <p className="ml-6 text-sm">Referrals/IJP</p>
                     <p className="text-sm text-start ml-6 text-gray-500 w-[100px]">0 referrals|0 IJP</p>
                   </div>
                   <button
-                    className="h-[30px] w-[100px] border border-green-900 bg-transparent  text-sm  mt-1 ml-4 px-1 rounded transition-colors duration-300 hover:bg-green- text-white"
+                    className="h-[40px] w-[70px] border text-center border-green-900 bg-transparent  text-sm  ml-1 rounded transition-colors duration-300 hover:bg-green- text-white"
                     onClick={toggleReferTalent}
                     style={{ backgroundColor: color }}
                   >
@@ -171,7 +191,7 @@ export default function HighlightAccordion() {
           <Accordion
             open={open === 5}
             icon={<Icon id={5} open={open} />}
-            className="bg-white bg-opacity-50 backdrop-blur-lg shadow-lg rounded-lg"
+            className="bg-white bg-opacity-50 backdrop-blur-lg shadow-lg rounded-lg ml-1"
           >
             <AccordionHeader
               onClick={() => handleOpen(5)}
@@ -183,14 +203,14 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-6 text-sm">Core Values</p>
-                  <p className="text-sm text-start ml-6 text-gray-500">0 core values</p>
+                  <p className="text-sm text-start ml-6 text-gray-500">{coreValues.length} core values</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              <div className="flex justify-between">
-                <div className="ml-2">image</div>
-                <p className="text-slate-500 mr-2">No core values</p>
+              <div className="">
+                <div className="ml-2 font-semibold ">Title:-{coreValues[0]?.title}</div>
+                <p className="text-slate-500 ml-2">Description:-{coreValues[0]?.description}</p>
               </div>
             </AccordionBody>
           </Accordion>

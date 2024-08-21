@@ -5,10 +5,12 @@ import { Outlet } from 'react-router-dom'
 
 function Layout() {
   return (
-    <div className='fixed w-full h-full'>
+    <div className=' w-full h-full'>
       <Header/>
       <Sidebar/>
-      <Outlet/>
+      <div className='content'>
+        <Outlet/>
+      </div>
     </div>
   )
 }

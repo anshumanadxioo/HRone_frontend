@@ -14,8 +14,8 @@ function Header() {
   };
   const { color } = useColor();
 
-  return (
-    <div   className='text-white p-2 flex items-center justify-between relative'
+  return (  
+    <div   className='text-white p-2 flex items-center justify-between fixed w-full z-40 top-0'
     style={{ backgroundColor: color }}>
       <div className='text-lg font-semibold'>
         ADIXOO BRAND PVT LTD

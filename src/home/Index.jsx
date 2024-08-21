@@ -3,13 +3,14 @@ import UserInfo from './UserInfo'
 import HighlightAccordion from './highlights/Accordian'
 import UserFeed from './UserFeed'
 import Inbox from './Inbox'
+import { Outlet } from 'react-router-dom'
 
 
 function Index() {
   return (
-    <div className=' bg-slate-100 w-full  '>
+    <div className='w-full h-full '>
         <UserInfo/>
-        <div className="flex items-center justify-between  h-screen px-4 -mt-2  ">
+        <div className="flex items-center justify-between h-[90vh] flex-grow">
         <HighlightAccordion/>
         <UserFeed/>
         <Inbox />

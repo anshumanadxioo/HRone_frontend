@@ -2,48 +2,51 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+
 function SignUp() {
   const [formData, setformData] = useState({
-    name:"",
-    email:"",
-    password:"",
-    confirmpassword:""
-  })
-  const handleChange=(e)=>{
-  setformData((oldstate)=>({
-    ...oldstate,
-    [e.target.name]:e.target.value
-  }))
- 
-}
-const handleSubmit=async(e)=>{
-  e.preventDefault();
-  try{
-  console.log(formData)
-  const result=await registerUser(formData)
-  console.log("Registration successful")
-}
-catch(err){
-  console.log("Registration fail",err)
-}
-}
-const navigate=useNavigate();
-const handleClick=()=>{
- navigate('/login');
-}
-const REGISTER_URL='https://tzqnlpfh-3000.inc1.devtunnels.ms/register'
-const registerUser=async (formdata)=>{
-try{
-  const res= await axios.post(REGISTER_URL,formdata)
-  console.log(res.data);
-  
-  return res.data
-}
-catch(err){
-  console.log("Error while registering user",err);
-  throw err;
-}
-}
+    name: "",
+    email: "",
+    password: "",
+    confirmpassword: ""
+  });
+
+  const handleChange = (e) => {
+    setformData((oldstate) => ({
+      ...oldstate,
+      [e.target.name]: e.target.value
+    }));
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(formData);
+      const result = await registerUser(formData);
+      console.log("Registration successful");
+    } catch (err) {
+      console.log("Registration failed", err);
+    }
+  }
+
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/login');
+  }
+
+  const REGISTER_URL = 'https://tzqnlpfh-3000.inc1.devtunnels.ms/register';
+
+  const registerUser = async (formData) => {
+    try {
+      const res = await axios.post(REGISTER_URL, formData);
+      console.log(res.data);
+      return res.data;
+    } catch (err) {
+      console.log("Error while registering user", err);
+      throw err;
+    }
+  }
+
   return (
     <div className='flex w-full h-screen responsive-main_div'>
       {/* Left Side */}
@@ -84,7 +87,7 @@ catch(err){
             <input
               id='password'
               placeholder='Enter Password'
-              type='password'
+              type='password'  // Changed to 'password'
               name='password'
               required
               className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
@@ -92,12 +95,13 @@ catch(err){
               onChange={handleChange}
             />
           </div>
+
           <div className='mb-2'>
             <label htmlFor='confirmpassword' className='block text-sm font-medium text-gray-700 mb-1'>Confirm Password</label>
             <input
               id='confirmpassword'
               placeholder='Enter Password again'
-              type='confirmpassword'
+              type='password'  // Changed to 'password'
               name='confirmpassword'
               required
               className='w-full px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
@@ -119,30 +123,32 @@ catch(err){
           >
             Sign Up
           </button>
+
           <div className='flex'>
             <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
             <div className='mt-[18px]'><p>or</p></div>
             <div className='h-[2px] w-[183px] mt-8 bg-black'></div>
-         </div>
-        <div className='mt-3 flex justify-between responsive-signinoption-res'>
+          </div>
+
+          <div className='mt-3 flex justify-between responsive-signinoption-res'>
             <div className='flex ml-2 pb-2 cursor-pointer'>
-            <FaGoogle className='text-2xl mr-2 ' />
-             Sign in with Google
+              <FaGoogle className='text-2xl mr-2 ' />
+              Sign in with Google
             </div>
-          <div className='flex mr-4 ml-4 cursor-pointer'>
+            <div className='flex mr-4 ml-4 cursor-pointer'>
               <FaApple className='text-2xl mr-2' />
               Sign in with Apple
+            </div>
           </div>
-        </div>
+
           <p className='ml-20 mt-2'>Have an account?
-             <span className='text-blue-800 cursor-pointer' onClick={handleClick}>Login In</span>
-             </p>
+            <span className='text-blue-800 cursor-pointer' onClick={handleClick}>Login In</span>
+          </p>
         </form>
       </div>
 
       <div className=''>
-        <img src='/login.png' loading='lazy' alt='Login' className='md:h-[100vh]  md:w-[50vw] 
-        lg:object-fill' />
+        <img src='/login.png' loading='lazy' alt='Login' className='md:h-[100vh] md:w-[50vw] lg:object-fill' />
       </div>
     </div>
   );

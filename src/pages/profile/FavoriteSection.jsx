@@ -12,11 +12,24 @@ function favoriteSection() {
   const toggleFavorite = () => setIsFavoriteOpen(!isFavoriteOpen);
   const toggleRecentSearchers = () => setIsRecentSearchersOpen(!isRecentSearchersOpen);
 
+  const colorMapping = {
+    '#02563D': '#357864',
+    '#237DD1': '#4F97DA',
+    '#1D2435': '#282F3F',
+    '#645788': '#746894',
+    '#AF42AE': '#BF68BE',
+    '#12C4AC': '#59D6C9',
+    '#E6793B': '#E98D4E',
+  };
+ 
+  const backgroundColor = colorMapping[color] || '#357864'; 
+
   return (
+    
     <>
       <div>
-        {/* green BG */}
-        <div className='absolute ml-[62px] h-24 bg-customGreen text-white p-4 z-20 w-[100vw]'></div>
+        {/* dynamic backgorund */}
+        <div className='absolute ml-[62px] h-24  text-white p-4 z-20 w-[100vw]'  style={{ backgroundColor: backgroundColor }} ></div>
 
         {/* search bar section  */}
 

@@ -3,9 +3,12 @@ import { useColor } from "../../pages/colorcontext/ColorContext";
 
 const UserProfile = () => {
     const { color } = useColor();
-    return (
-        <div className="flex flex-col items-center justify-center mt-9 p-20 space-y-8">
-            {/* First Box */}
+    
+    return (<>
+     
+
+        
+        <div className="flex flex-col items-center justify-center mt-9 p-20 space-y-8 " >
             <div className="bg-white shadow-2xl w-80 h-96 relative border border-gray-500 rounded-lg">
                 <div className="absolute left-1/2 transform -translate-x-1/2 bg-blue-500 rounded-full w-40 h-36 shadow-lg flex items-center justify-center mt-3">
                     <div className="text-center text-white text-4xl">AM</div>
@@ -64,8 +67,8 @@ const UserProfile = () => {
                 </div>
             </div>
         </div>
+    </>
     );
 }
 
 export default UserProfile;
-    

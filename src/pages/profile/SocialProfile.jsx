@@ -13,10 +13,12 @@ function SocialProfile() {
         <Header />
         <Sidebar />
         <FavoriteSection/>
-        <UserProfile/>
-        
+        <div className= '  h-screen overflow-y-auto'>
 
-        
+        <UserProfile/>        
+        </div>
+
+          
       </div>
     </>
   );

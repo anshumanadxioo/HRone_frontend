@@ -33,7 +33,7 @@ function UserInfo() {
       >
         <div className='flex justify-between'>
           <div>
-            <p className='text-2xl font-bold text-white'>Hello, Anshuman!</p>
+            <p className='text-2xl font-bold text-white'>Hello, Ankur !</p>
             <p className='mt-2 text-white'>Hope you are having a great day</p>
           </div>
           <div className='bg-orange-500 text-white rounded w-[44px] h-[36px] mr-9'>

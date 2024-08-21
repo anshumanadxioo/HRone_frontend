@@ -27,29 +27,11 @@ function UserInfo() {
 
   return (
     <>
-<<<<<<< HEAD
     <div className='ml-[64px]  bg-customGreen text-white p-4 mt-14'>
       <div className='flex justify-between'>
         <div>
           <p className='text-2xl font-bold'>Hello, Anshuman!</p>
           <p className='mt-2'>Hope you are having a great day</p>
-=======
-      <div
-        className='ml-[64px] p-4'
-        style={{ backgroundColor: backgroundColor }} // Apply the background color
-      >
-        <div className='flex justify-between'>
-          <div>
-            <p className='text-2xl font-bold text-white'>Hello, Ankur !</p>
-            <p className='mt-2 text-white'>Hope you are having a great day</p>
-          </div>
-          <div className='bg-orange-500 text-white rounded w-[44px] h-[36px] mr-9'>
-            <FiSettings
-              className='text-xl text-center ml-3 mt-2 cursor-pointer'
-              onClick={toggleSliderSetting}
-            />
-          </div>
->>>>>>> fa0041bc93447bf252a6a5c463789167e9a2b16f
         </div>
 
         {/* Conditionally render SettingPage based on isOpenSetting */}
@@ -59,6 +41,7 @@ function UserInfo() {
             toggleSliderSetting={toggleSliderSetting}
           />
         )}
+      </div>
       </div>
     </>
   );

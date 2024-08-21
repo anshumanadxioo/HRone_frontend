@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
@@ -15,13 +16,33 @@ function SignUp() {
   }))
  
 }
-const handleSubmit=(e)=>{
+const handleSubmit=async(e)=>{
   e.preventDefault();
-console.log(formData)
+  try{
+  console.log(formData)
+  const result=await registerUser(formData)
+  console.log("Registration successful")
+}
+catch(err){
+  console.log("Registration fail",err)
+}
 }
 const navigate=useNavigate();
 const handleClick=()=>{
  navigate('/login');
+}
+const REGISTER_URL='https://tzqnlpfh-3000.inc1.devtunnels.ms/register'
+const registerUser=async (formdata)=>{
+try{
+  const res= await axios.post(REGISTER_URL,formdata)
+  console.log(res.data);
+  
+  return res.data
+}
+catch(err){
+  console.log("Error while registering user",err);
+  throw err;
+}
 }
   return (
     <div className='flex w-full h-screen responsive-main_div'>

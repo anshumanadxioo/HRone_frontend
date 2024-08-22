@@ -18,8 +18,8 @@ const UserFeed = () => {
   };
 
   return (
-    <div className="overflow-hidden mb-44 mt-6">
-      <div className="pl-2 h-screen">
+    <div className="overflow-hidden mb-44 mt-6 ">
+      <div className="pl-2 h-screen ">
         <div className="relative ml-4 mt-[220px]">
           <p className="text-xl font-semibold mb-4">Feed</p>
           <IoFilterOutline className="absolute top-0 right-0 mr-1 text-2xl" />

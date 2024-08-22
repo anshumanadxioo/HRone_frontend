@@ -7,6 +7,7 @@ import Index from './home'
 import Layout from './Layout'
 import SocialProfile from './pages/profile/SocialProfile'
 import Request from './pages/requests/Request'
+import Inbox from './pages/inboxfull/Inbox'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='home' element={<Index />}/>
         <Route path='socialprofile' element={<SocialProfile />} />
         <Route path='requests' element={<Request/>} />
+        <Route path='inbox' element={<Inbox/>} />
       </Route>
     </Routes>
   )

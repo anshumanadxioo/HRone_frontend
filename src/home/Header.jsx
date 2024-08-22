@@ -8,7 +8,8 @@ import { RiOrganizationChart } from "react-icons/ri";
 import OrganizationChart from '../pages/organizationchart/organizationChart';
 
 function Header() {
-  //chart
+
+  
   const [isOpenChart, setIsOpenChart] = useState(false);
   const toggleChart = () => {
     setIsOpenChart(!isOpenChart);

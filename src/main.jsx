@@ -11,6 +11,6 @@ createRoot(document.getElementById('root')).render(
       <ColorProvider> 
         <App />
       </ColorProvider>
-    </BrowserRouter>
+    </BrowserRouter>  
   </StrictMode>
 );

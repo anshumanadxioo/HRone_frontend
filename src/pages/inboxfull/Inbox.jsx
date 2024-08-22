@@ -3,16 +3,20 @@ import Header from '../../home/Header';
 import Sidebar from '../../home/Sidebar';
 import ArchiveSection from './ArchiveSection';
 import AllMessageSection from './AllMessageSection';
+import GaintPage from './GaintPage';
 
 const Inbox = () => {
   return (
     <>
-      <Header />
-      <Sidebar />
-      <div className="space-x-56 ">
+   
+      
+      <div className=" space-x-52">
         <ArchiveSection />
-        <AllMessageSection  />
+        <AllMessageSection />
+        {/* <GaintPage className= ""/> */}
       </div>
+     
+      
     </>
   );
 }

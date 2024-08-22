@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { MdFiberNew } from "react-icons/md";
 import { BiArchiveIn } from "react-icons/bi";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { useColor } from "../../pages/colorcontext/ColorContext";
 
 function ArchiveSection() {
-  const { color } = useColor();
+
 
   // Separate states for each section
   const [isNewOpen, setIsNewOpen] = useState(false);
@@ -15,24 +14,12 @@ function ArchiveSection() {
   const toggleNew = () => setIsNewOpen(!isNewOpen);
   const toggleArchive = () => setIsArchiveOpen(!isArchiveOpen);
 
-  const colorMapping = {
-    '#02563D': '#357864',
-    '#237DD1': '#4F97DA',
-    '#1D2435': '#282F3F',
-    '#645788': '#746894',
-    '#AF42AE': '#BF68BE',
-    '#12C4AC': '#59D6C9',
-    '#E6793B': '#E98D4E',
-  };
 
-  const backgroundColor = colorMapping[color] || '#357864';
 
   return (
     <>
       <div>
-        {/* dynamic background */}
-        <div className='absolute ml-[62px] h-24 text-white p-4 z-20 w-[100vw]' style={{ backgroundColor: backgroundColor }}></div>
-
+ 
         {/* new and archive bar section */}
         <div className="fixed top-14 pl-4 pr-4 bg-white shadow-xl h-full w-[15%] ml-[62px] z-30 pt-3 overflow-y-auto">
           {/* New Section */}

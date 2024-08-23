@@ -201,7 +201,7 @@ export default function HighlightAccordion() {
                     <p className="text-sm text-start ml-6 text-gray-500 w-[100px]">0 referrals|0 IJP</p>
                   </div>
                   <button
-                    className="h-[40px] w-[70px] border text-center border-green-900 bg-transparent  text-sm  ml-1 rounded transition-colors duration-300 hover:bg-green- text-white"
+                    className=" h-[40px] w-[70px] border text-center border-green-900 bg-transparent  text-sm  ml-1  rounded transition-colors duration-300 hover:bg-green- text-white"
                     onClick={toggleReferTalent}
                     style={{ backgroundColor: color }}
                   >

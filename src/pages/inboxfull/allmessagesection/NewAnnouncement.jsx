@@ -30,11 +30,11 @@ const NewAnnouncement = () => {
             {NewAnnouncementData.map((item) => (
                 <div key={item.id} className='mt-3 py-1 px-2'>
                     <div className='bg-lightblue flex flex-col py-2 mb-2'>
-                        <p className='text-[12px] font-semibold'>
+                        <p className='text-base  font-semibold'>
                             {item.title} - {item.date}
                         </p>
-                        <p className='text-gray-600 text-[10px]'>{item.description}</p>
-                        <p className='text-blue-900 text-[10px] font-bold mt-2'>
+                        <p className='text-gray-600  text-sm'>{item.description}</p>
+                        <p className='text-blue-900 text-sm font-bold mt-2'>
                             Announced by: {item.announcedBy}
                         </p>
                     </div>

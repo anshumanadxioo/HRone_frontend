@@ -21,7 +21,7 @@ function ArchiveSection() {
       <div>
  
         {/* new and archive bar section */}
-        <div className="fixed top-14 pl-4 pr-4 bg-white shadow-xl h-full w-[15%] ml-[62px] z-30 pt-3 overflow-y-auto">
+        <div className=" mt-14 p-3 bg-gray-100 h-full w-64 ml-[62px]  border-gray-300 shadow-2xl overflow-y-auto">
           {/* New Section */}
           <div className="cursor-pointer flex items-center justify-between mb-2" onClick={toggleNew}>
             <div className="flex items-center">
@@ -35,7 +35,7 @@ function ArchiveSection() {
               {["All", "Ask asset"].map((item, index) => (
                 <li
                   key={index}
-                  className="p-2 border-b border-gray-200 text-xs cursor-pointer"
+                  className="p-2 border-b border-gray-200 text-sm cursor-pointer"
                   style={{ transition: "background-color 0.3s, color 0.3s" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "#F0F5F2";
@@ -67,7 +67,7 @@ function ArchiveSection() {
               {["Ack asset", "Mark attendance", "New announcement"].map((item, index) => (
                 <li
                   key={index}
-                  className="p-2 border-b border-gray-200 text-xs cursor-pointer"
+                  className="p-2 border-b border-gray-200 text-sm cursor-pointer"
                   style={{ transition: "background-color 0.3s, color 0.3s" }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "#F0F5F2";

@@ -1,22 +1,20 @@
 import React from 'react';
-import Header from '../../home/Header';
-import Sidebar from '../../home/Sidebar';
-import ArchiveSection from './ArchiveSection';
-import AllMessageSection from './AllMessageSection';
-import GaintPage from './GaintPage';
+import ArchiveSection from './archivesection/ArchiveSection';
+import AllMessageSection from './allmessagesection/AllMessageSection';
+import GaintPage from './gaintpage/GaintPage';
 
 const Inbox = () => {
   return (
     <>
-   
-      
-      <div className=" space-x-52">
+
+
+      <div className="flex justify-start">
         <ArchiveSection />
         <AllMessageSection />
-        {/* <GaintPage className= ""/> */}
+        <GaintPage />
       </div>
-     
-      
+
+
     </>
   );
 }

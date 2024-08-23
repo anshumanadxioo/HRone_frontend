@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoMdSearch } from 'react-icons/io';
-import { useColor } from '../../pages/colorcontext/ColorContext';
+import { useColor } from '../../colorcontext/ColorContext';
 import AskAssetNotification from './AskAssetNotification';
 import MarkAttandanceNotification from './MarkAttandanceNotification';
 import NewAnnouncement from './NewAnnouncement';
@@ -21,7 +21,7 @@ function AllMessageSection({ selectedComponent }) {
     return (
         <div>
             <div
-                className="fixed top-14 pl-4 pr-4 border-gray-300 shadow-md h-full w-[25%] ml-[62px] z-30 pt-3 overflow-y-auto bg-white"
+                className=" p-3 mt-14  bg-gray-100  border-gray-300 shadow-2xl h-[100vh] w-80  z-30 overflow-y-auto "
             >
                 <div className="flex justify-between items-center relative">
                     <button

@@ -25,6 +25,14 @@ const MarkAttendanceNotificationData = [
         time: '9:00 AM',
         By: 'Michael Brown',
     },
+    {
+        id: 4,
+        type: 'Work from office',
+        user: 'Emily Clark',
+        Date: '19/08/2025',
+        time: '9:00 AM',
+        By: 'Michael Brown',
+    },
 ];
 
 const MarkAttendanceNotification = () => {
@@ -33,11 +41,11 @@ const MarkAttendanceNotification = () => {
             {MarkAttendanceNotificationData.map((item) => (
                 <div key={item.id} className='mt-3 py-1 px-2'>
                     <div className='bg-lightgreen flex flex-col py-2 mb-2'>
-                        <p className='text-[12px] font-semibold'>
+                        <p className='text-base font-semibold'>
                             {item.type} for {item.user} (#ADI149)
                         </p>
-                        <p className='text-gray-600 text-[10px]'>{item.Date} | {item.time}</p>
-                        <p className='text-green-900 text-[10px] font-bold mt-2'>
+                        <p className='text-gray-600  text-sm'>{item.Date} | {item.time}</p>
+                        <p className='text-green-900 text-sm font-bold mt-2'>
                             WITH: {item.By} (#ADI149)
                         </p>
                     </div>

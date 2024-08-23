@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { IoIosNotifications } from "react-icons/io";
 import { FcLeave } from "react-icons/fc";
 import Calendar from 'react-calendar';
-import "./calendar.css"
-
+import "./calendar.css";
 
 const Inbox = () => {
   const [date, setDate] = useState(new Date());
+  const [leaveBalance, setLeaveBalance] = useState(null);
 
   const onChange = date => {
     setDate(date);
   };
 
+  useEffect(() => {
+    // Fetch leave balance data from the API
+    const fetchLeaveBalance = async () => {
+      try {
+        const response = await fetch('https://tzqnlpfh-3000.inc1.devtunnels.ms/leave-balance?user_id=4');
+        const data = await response.json();
+        setLeaveBalance(data.leaveBalance); // Accessing the leaveBalance from the API response
+      } catch (error) {
+        console.error("Failed to fetch leave balance:", error);
+      }
+    };
+
+    fetchLeaveBalance();
+  }, []);
 
   return (
     <>
-      <div className="w-full max-w-96 mx-0 pl-6 h-full overflow-y-auto mt-10 ">
+      <div className="w-full max-w-96 mx-0 pl-6 h-full overflow-y-auto mt-10">
         <div className="">
           {/* Inbox */}
           <p className="text-xl font-semibold mb-2">Inbox</p>
@@ -69,7 +82,9 @@ const Inbox = () => {
               <FcLeave className="text-6xl" />
               <div className="ml-4">
                 <h2 className="text-base font-semibold">Your leave balance is</h2>
-                <h2 className="text-xl font-bold">10</h2>
+                <h2 className="text-xl font-bold">
+                  {leaveBalance !== null ? leaveBalance : 'Loading...'}
+                </h2>
               </div>
             </div>
           </div>

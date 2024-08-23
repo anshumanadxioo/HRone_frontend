@@ -27,12 +27,19 @@ function UserInfo() {
 
   return (
     <>
-    <div className='ml-[64px]  bg-customGreen text-white p-4 mt-14'>
+    <div className='ml-[64px]  bg-customGreen text-white p-4 mt-14' style={{ backgroundColor: backgroundColor }}>
       <div className='flex justify-between'>
         <div>
           <p className='text-2xl font-bold'>Hello, Anshuman!</p>
           <p className='mt-2'>Hope you are having a great day</p>
         </div>
+
+        <div className='bg-orange-500 text-white rounded w-[44px] h-[36px] mr-9'>
+            <FiSettings
+              className='text-xl text-center ml-3 mt-2 cursor-pointer'
+              onClick={toggleSliderSetting}
+            />
+          </div>
 
         {/* Conditionally render SettingPage based on isOpenSetting */}
         {isOpenSetting && (

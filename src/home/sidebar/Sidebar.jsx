@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaHome, FaInbox, FaEnvelope, FaUser } from 'react-icons/fa';
 import { TiPin } from "react-icons/ti";
-import PinPage from '../pages/pin/PinPage';
+import PinPage from '../../pages/pin/PinPage';
 import { NavLink } from 'react-router-dom';
 import { FaCodePullRequest } from 'react-icons/fa6';
 

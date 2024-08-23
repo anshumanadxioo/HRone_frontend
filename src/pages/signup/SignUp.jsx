@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function SignUp() {
   const [formData, setformData] = useState({
@@ -25,7 +26,7 @@ function SignUp() {
       const result = await registerUser(formData);
       console.log("Registration successful");
     } catch (err) {
-      console.log("Registration failed", err);
+      console.log("Registration failed", err.response.data.message);
     }
   }
 
@@ -40,9 +41,11 @@ function SignUp() {
     try {
       const res = await axios.post(REGISTER_URL, formData);
       console.log(res.data);
+      toast.success("registered successfully")
       return res.data;
     } catch (err) {
-      console.log("Error while registering user", err);
+      console.log("Error while registering user", err.message);
+      toast.error("Error",err.message)
       throw err;
     }
   }

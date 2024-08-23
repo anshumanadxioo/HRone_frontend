@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { axoisInstance } from '../../axiosConfig';
+import { toast } from 'react-toastify';
 
 function LoginPage() {
   const [login, setlogin] = useState({
@@ -22,11 +23,13 @@ function LoginPage() {
     const res=await axoisInstance.post('/login',data);
     console.log(res.data.token,"login token");
     localStorage.setItem('token',res.data.token);
+    toast.success("login successfully");
     navigate('/home')
   }
   catch(error){
-   if(error.response){
-    setError(error.response.data.message);
+   if(error.message){
+    toast.error("Error")
+    setError(error.message);
    }
    else{
     setError('An error occured please try again')

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { axoisInstance } from '../../axiosConfig';
 
 function Forgetpassword() {
   const [password, setpassword] = useState({
@@ -14,6 +15,19 @@ function Forgetpassword() {
   const handleSubmit=(e)=>{
    e.preventDefault();
    console.log(password,"password")
+  }
+  useEffect(()=>{
+  forget_password(password)
+  },[])
+  const forget_password=async(password)=>{
+    try{
+      const res=await axoisInstance.post('/forgot-password',password);
+      console.log(res.data.token,"token has been send")
+    }
+    catch(err){
+        console.log("failed to change the password",err);
+    }
+
   }
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>

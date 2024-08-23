@@ -9,11 +9,12 @@ import { MdOutlineCelebration } from "react-icons/md";
 import { SlCalender } from "react-icons/sl";
 import { FaBullhorn, FaCalendarCheck, FaHandHoldingHeart } from "react-icons/fa";
 import ReferTalent from "./ReferTalent";
-import { FaHandHolding } from "react-icons/fa6";
-import { BiCalendarEvent, BiSolidParty } from "react-icons/bi";
+import { FaBullseye, FaHandHolding } from "react-icons/fa6";
+import { BiCalendarEvent, BiSolidBullseye, BiSolidParty } from "react-icons/bi";
 import './scrollbar.css'
 import { useColor } from "../../pages/colorcontext/ColorContext";
 import { axoisInstance } from "../../axiosConfig";
+import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
 function Icon({ id, open }) {
   return (
     <svg
@@ -35,9 +36,11 @@ export default function HighlightAccordion() {
   const [open, setOpen] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [coreValues, setcoreValues] = useState([])
-  const [birthday, setbirthday] = useState({})
+  const [birthday, setbirthday] = useState([])
+  const [activetab, setactivetab] = useState('')
   const toggleReferTalent = () => {
     setIsOpen(!isOpen);
+    console.log("calling the function");
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
@@ -52,13 +55,15 @@ export default function HighlightAccordion() {
   const gettingthe_birthday=async()=>{
    try{
     const response= await axoisInstance.get('/check-birthdays');
-    setcoreValues(response.data);
+    setbirthday(response.data.messages);
+    // console.log(response.data.messages,"birhtday")
    }catch(err){
-    console.log("your error is:-",err.response.data.message)
+    console.log("your error is:-",err.message)
    }
   }
   useEffect(()=>{
     ourcore_values();
+    gettingthe_birthday();
   },[])
   return (
     <>
@@ -81,15 +86,20 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-7 text-sm">Today's Celebration</p>
-                  <p className="text-sm text-start ml-7 text-gray-500">0 celebrations</p>
+                  <p className="text-sm text-start ml-8 text-gray-500">{birthday?.length}celebration</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              <div className="flex justify-between">
-                <div className="ml-2">image</div>
-                <p className="text-slate-500 mr-2">No celebration today</p>
-              </div>
+            {birthday?.length > 0 ? (
+                birthday?.map((item, index) => (
+                  <div className="ml-5" key={index}>
+                    <p className="text-slate-500 font-semibold mr-2">{item}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No celebrations today</p>
+              )}
             </AccordionBody>
           </Accordion>
 
@@ -105,19 +115,41 @@ export default function HighlightAccordion() {
             >
               <div className="flex">
                 <div>
-                  <BiCalendarEvent className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
+                  <BiSolidBullseye className="text-orangered text-4xl mt-[5px] absolute left-0 bg-lightpink rounded" />
                 </div>
                 <div className="flex flex-col">
-                  <p className="ml-6 text-sm">Team Planned Leaves</p>
-                  <p className="text-sm text-start ml-6 text-gray-500">0 Members</p>
+                  <p className="ml-6 text-sm">
+                  Mission statement</p>
+                  <p className="text-sm text-start ml-6 text-gray-500">Vision,mission and purpose</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              <div className="flex justify-between">
-                <div className="ml-2">image</div>
-                <p className="text-slate-500 mr-2">No planned leaves today</p>
-              </div>
+            <div className="flex w-full flex-col">
+      <Tabs aria-label="Options">
+        <Tab key="Vision" title="Vision" className="border-2 rounded">
+          <Card className="mt-2">
+            <CardBody>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </CardBody>
+          </Card>  
+        </Tab>
+        <Tab key="mission" title="mission">
+          <Card>
+            <CardBody>
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </CardBody>
+          </Card>  
+        </Tab>
+        <Tab key="purpose" title="purpose">
+          <Card>
+            <CardBody>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </CardBody>
+          </Card>  
+        </Tab>
+      </Tabs>
+    </div>  
             </AccordionBody>
           </Accordion>
 
@@ -209,7 +241,7 @@ export default function HighlightAccordion() {
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
               <div className="">
                 <div className="ml-2 font-semibold ">Title:-{coreValues[0]?.title}</div>
-                <p className="text-slate-500 ml-2">Description:-{coreValues[0]?.description}</p>
+                <p className="text-slate-500 ml-2"><span className="font-semibold">Description</span>:-{coreValues[0]?.description}</p>
               </div>
             </AccordionBody>
           </Accordion>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useColor } from "../../pages/colorcontext/ColorContext";
+import { useColor } from "../colorcontext/ColorContext";
 
 
 const cards = [

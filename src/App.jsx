@@ -12,6 +12,7 @@ import Undo from './pages/requests/dropdownpages/Undo/Undo'
 import Approved from './pages/requests/dropdownpages/Approved/Approved'
 import Draft from './pages/requests/dropdownpages/Draft/Draft'
 import Rejected from './pages/requests/dropdownpages/Rejected/Rejected'
+import Inbox from '../src/pages/inboxfull/Inbox'
 
 function App() {
   return (
@@ -20,16 +21,18 @@ function App() {
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/forgetpassword' element={<Forgetpassword />} />
+
       <Route path='/' element={<Layout />}>
-        <Route path='home' element={<Index />}/>
+        <Route path='home' element={<Index />} />
         <Route path='socialprofile' element={<SocialProfile />} />
-        <Route path='requests' element={<Request/>}>
-        <Route path='Pending' element={<Pending/>}/>
-        <Route path='Rejected' element={<Rejected/>}/>
-        <Route path='Drafts' element={<Draft/>}/>
-        <Route path='Approved' element={<Approved/>}/>
-        <Route path='Undo' element={<Undo/>}/>
+        <Route path='requests' element={<Request />}>
+          <Route path='Pending' element={<Pending />} />
+          <Route path='Rejected' element={<Rejected />} />
+          <Route path='Drafts' element={<Draft />} />
+          <Route path='Approved' element={<Approved />} />
+          <Route path='Undo' element={<Undo />} />
         </Route>
+        <Route path='inbox' element={<Inbox />} />
       </Route>
     </Routes>
   )

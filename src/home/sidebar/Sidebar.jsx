@@ -4,7 +4,7 @@ import { TiPin } from "react-icons/ti";
 import PinPage from '../../pages/pin/PinPage';
 import { NavLink } from 'react-router-dom';
 import { FaCodePullRequest } from 'react-icons/fa6';
-import { useColor } from '../pages/colorcontext/ColorContext';
+import { useColor } from '../../pages/colorcontext/ColorContext';
 
 
 function Sidebar() {

@@ -3,14 +3,13 @@ import { IoIosNotifications } from "react-icons/io";
 import { FcLeave } from "react-icons/fc";
 import Calendar from 'react-calendar';
 import "./calendar.css";
+import { NavLink } from 'react-router-dom';
 
 const Inbox = () => {
   const [date, setDate] = useState(new Date());
   const [leaveBalance, setLeaveBalance] = useState(null);
 
-  const onChange = date => {
-    setDate(date);
-  };
+
 
   useEffect(() => {
     // Fetch leave balance data from the API
@@ -45,11 +44,16 @@ const Inbox = () => {
 
           {/* Calendar */}
           <div className="w-full p-6 bg-white shadow-2xl rounded-lg mb-6">
-            <h2 className="text-xl font-semibold mb-4">Calendar</h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">Calendar</h2>
+              <NavLink to="/home/calender"
+              >
+                <p className="font-semibold cursor-pointer text-sky-800">Go to calendar</p>
+              </NavLink>
+            </div>
+
             <Calendar
               className="react-calendar border rounded-lg shadow-sm"
-              onChange={onChange}
-              value={date}
             />
             <div className="mt-4 flex space-x-6">
               <div className="flex items-center">
@@ -74,6 +78,7 @@ const Inbox = () => {
               <p className="text-sm">Holiday</p>
             </div>
           </div>
+
 
           {/* Leave Balance */}
           <div className="bg-white shadow-lg border rounded-lg mt-4 pl-2 mb-6">

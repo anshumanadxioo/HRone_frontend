@@ -13,6 +13,7 @@ import Approved from './pages/requests/dropdownpages/Approved/Approved'
 import Draft from './pages/requests/dropdownpages/Draft/Draft'
 import Rejected from './pages/requests/dropdownpages/Rejected/Rejected'
 import Inbox from '../src/pages/inboxfull/Inbox'
+import BigCalenderSection from "./pages/bigcalender/BigCalenderSection"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/forgetpassword' element={<Forgetpassword />} />
+      <Route path='/home/calender' element={<BigCalenderSection/>} />
 
       <Route path='/' element={<Layout />}>
         <Route path='home' element={<Index />} />
@@ -33,6 +35,7 @@ function App() {
           <Route path='Undo' element={<Undo />} />
         </Route>
         <Route path='inbox' element={<Inbox />} />
+       
       </Route>
     </Routes>
   )

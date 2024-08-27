@@ -10,8 +10,10 @@ function SocialProfile() {
     <>
       <div>
         <Outlet/>
-        <FavoriteSection/>
-        <UserProfile/>
+        <div className=' relative flex justify-start'>
+        <div className='fixed h-[100vh] '><FavoriteSection/></div>
+        <div className=' absolute left-[30%] mt-24'><UserProfile/></div>
+        </div>
       </div>
     </>
   );

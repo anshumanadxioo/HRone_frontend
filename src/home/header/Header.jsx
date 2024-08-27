@@ -36,9 +36,9 @@ function Header() {
         ADIXOO BRAND PVT LTD
       </div>
 
-      <div className='flex items-center flex-grow justify-center'>
-        <Searchbar />
-        <div className='ml-2 bg-white text-gray-900 p-2 rounded-sm cursor-pointer'>
+      <div className='flex items-center flex-grow justify-center space-x-2  '>
+        <Searchbar  />
+        <div className='bg-white text-gray-900 p-2 rounded-sm cursor-pointer'>
           <RiOrganizationChart className='text-gray-500 text-xl' onClick={toggleChart} />
         </div>
       </div>

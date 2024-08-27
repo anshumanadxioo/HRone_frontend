@@ -30,7 +30,7 @@ function favoriteSection() {
       <div>
         {/* search bar section  */}
  
-        <div className=" mt-1 top-14 pl-4 pr-4 bg-white  border-gray-300 shadow-2xl h-full w-64  ml-[62px] z-30 pt-3 overflow-y-auto">
+        <div className="relative mt-1 top-14 pl-4 pr-4 bg-white  border-gray-300 shadow-2xl h-[100vh] w-64  ml-[62px] z-30 pt-3 overflow-y-auto">
           <input
             type="text"
             placeholder="Search..."

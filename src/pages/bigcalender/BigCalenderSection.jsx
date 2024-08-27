@@ -10,7 +10,7 @@ const BigCalenderSection = () => {
       <Header />
       <Sidebar />
       {/* <Outlet/> */}
-      <div className="flex justify-start bg-gray-200 h-[100vh]">
+      <div className=" flex flex-between bg-gray-200 h-[100vh]">
         <FavoriteSection />
         <MyCalender />
       </div>

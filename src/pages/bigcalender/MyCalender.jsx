@@ -5,7 +5,7 @@ import CalenderHeader from './CalenderHeader';
 
 const MyCalender = () => {
   return (
-    <div className=' w-4/5 mt-14 p-4'>
+    <div className='w-4/5 mt-14 p-4'>
       <CalenderHeader />
 
       <div className='mt-5  border-gray-300 w-full h-auto bg-gray-100 rounded-lg'>

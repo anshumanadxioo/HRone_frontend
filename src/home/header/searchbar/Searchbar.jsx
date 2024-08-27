@@ -53,8 +53,8 @@ function Searchbar() {
   }, []);
 
   return (
-    <div className='relative w-[50vw]'>
-      <div className='flex items-center bg-white text-gray-900 px-4 py-2 w-full max-w-md shadow-lg rounded-lg'>
+    <div className='relative w-[90vh]'>
+      <div className='flex items-center bg-white text-gray-900 px-4 py-2 w-full max-w-xl shadow-lg rounded-lg'>
         <FaMagnifyingGlass className='text-gray-500 mt-[3px]' />
         <input
           type='text'
@@ -65,7 +65,7 @@ function Searchbar() {
       </div>
 
       {isSearch && (
-        <div className='absolute top-[45px] bg-white text-black w-full max-w-md mt-2 rounded-lg shadow-lg z-10 py-4 px-4'>
+        <div className='absolute top-[45px] bg-white text-black w-full max-w-xl mt-2 rounded-lg shadow-lg z-10 py-4 px-4'>
           {searchResult.length > 0 ? (
             searchResult.map((item, index) => (
               <div
@@ -81,7 +81,6 @@ function Searchbar() {
             <div>
                 <img src='/nodata.jpg' alt='nodata' width="100px" height="100px"/>
                 <p className='text-start text-gray-500'>No results found...</p>
-
             </div>
           )}
         </div>
@@ -91,4 +90,3 @@ function Searchbar() {
 }
 
 export default Searchbar;
-

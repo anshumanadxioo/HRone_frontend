@@ -1,0 +1,427 @@
+[33mcommit 470acf0ea5e8e5b2f26d05b018ebc9acc2c4c75b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Wed Aug 21 16:26:42 2024 +0530
+
+    changes the logo and the main heading
+
+[33mcommit dccd24f571fd6bb4084ac5f99407fe4d033bd7b0[m
+Merge: 4e7503e fa0041b
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Wed Aug 21 16:19:41 2024 +0530
+
+    commiting the changes
+
+[33mcommit 4e7503e5de8bf239a9c2f51c16a006cdaaddc621[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Wed Aug 21 16:14:41 2024 +0530
+
+    integrating the api
+
+[33mcommit fa0041bc93447bf252a6a5c463789167e9a2b16f[m
+Merge: 15646fa 0df3a87
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 21 16:09:02 2024 +0530
+
+    Merge branch 'master' of https://github.com/anshumanadxioo/HRone_frontend
+
+[33mcommit 15646fa2625db2c69254aa4e9d79238581330021[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 21 16:02:15 2024 +0530
+
+    Added the download functionality and organization cart
+
+[33mcommit 0df3a8753825f5b075195be5232df3625afd902a[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Tue Aug 20 12:32:30 2024 +0530
+
+    changes done
+
+[33mcommit c12122351ef4ac8731e67e1faa5086c0c3b66d47[m
+Merge: 92f51c6 3ee88fb
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Tue Aug 20 12:08:46 2024 +0530
+
+    commiting my changes
+
+[33mcommit 3ee88fb681769f383030fdc1db41e4fa99b2ca3c[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Tue Aug 20 12:05:32 2024 +0530
+
+    changes the login page
+
+[33mcommit 92f51c6e112bbd1c17fe4b93820f86c02b5ae213[m
+Merge: 070ef4a 62972e1
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Tue Aug 20 11:47:11 2024 +0530
+
+    taking the pull from the pravendra
+
+[33mcommit 62972e1feb1cfb55280134d1818a6d398ab7ad9e[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Tue Aug 20 11:32:04 2024 +0530
+
+    Theme integrartion in the pages
+
+[33mcommit 070ef4a0417ce8ac7807c67fdc4f04734e207459[m
+Merge: 2d27eb8 5d95e84
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Fri Aug 16 18:09:12 2024 +0530
+
+    commit
+
+[33mcommit 5d95e84b7504b753158aecd5c32be8d628c56228[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Fri Aug 16 16:28:12 2024 +0530
+
+    Added the pin page and made context for diffrenet colors , themes are also working now for whole user interface
+
+[33mcommit 2d27eb88ae3f4f82339aa02f55fac065e329bb86[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Fri Aug 16 16:23:33 2024 +0530
+
+    working on the user page
+
+[33mcommit 3ceb4635c3d8d9127bdf3844812b5a0864ddd6f9[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 14 18:36:14 2024 +0530
+
+    added the setting section
+
+[33mcommit 59a1397649b31d1cf682912987bf12edaba82bde[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 14 15:35:34 2024 +0530
+
+    nm
+
+[33mcommit 6af35d552131301a992551ad07dbbee143291c08[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Wed Aug 14 15:25:38 2024 +0530
+
+    updated the accordian section and the refral page
+
+[33mcommit 20ce190883c4d5e8f07e70841e676677543383ca[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 14 15:15:17 2024 +0530
+
+    completed the notificaiton
+
+[33mcommit e27cb26b10f78746f7cebd7206b49e9f9e98de2d[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Wed Aug 14 11:18:30 2024 +0530
+
+    completed the adjustment of all the components in the home page
+
+[33mcommit 7714ad1e8b9c86d1cfdc47479939d4422dc1ada3[m
+Merge: b3bb346 59ee6be
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Tue Aug 13 19:51:29 2024 +0530
+
+    completed and merged the all 3 section of component
+
+[33mcommit b3bb34680af51c9f85cc2160918e0c074500d149[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Tue Aug 13 16:40:56 2024 +0530
+
+    added the feed and inbox with calendar
+
+[33mcommit 59ee6beb06b20a7ea59f7fb0cd3de74a165f313c[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Tue Aug 13 16:35:27 2024 +0530
+
+    make the home and the referal page
+
+[33mcommit e9c06ce72fccfeb3aba9580a247805a6a96bf279[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Tue Aug 13 11:11:34 2024 +0530
+
+    completed the half portion of the home page
+
+[33mcommit fabce0635ced3179302f73b1ca7e69ec6f9cb73e[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Mon Aug 12 20:00:31 2024 +0530
+
+    added the login and router
+
+[33mcommit 7db90f10970fd394043eba126af7a843684dfd6c[m
+Merge: 35c44a9 527635d
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Mon Aug 12 19:33:56 2024 +0530
+
+    Your message here
+
+[33mcommit 527635dbfafe78922fd0da39bfed97822ccda8a0[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Mon Aug 12 19:29:16 2024 +0530
+
+    completed with the signup and the forgetpassword page
+
+[33mcommit 35c44a964eb91a814a4eb8700b83f8c4c4f45565[m
+Merge: 53e65b5 9e21795
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Mon Aug 12 18:46:34 2024 +0530
+
+    Merge branch 'master' of https://github.com/anshumanadxioo/HRone_frontend
+
+[33mcommit 53e65b58779c186651be173752982a61f78ca812[m
+Author: ParvendraRajput18 <Parvendra.Rajput@adixoo.com>
+Date:   Mon Aug 12 18:44:41 2024 +0530
+
+    changes in page message
+
+[33mcommit 9e21795559f2f3ddeda18c1b90e53129a7a88f66[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Mon Aug 12 18:43:02 2024 +0530
+
+    changed the signup file
+
+[33mcommit 99e44685cf7b66a51cf7a8cff556dd34a03f45f9[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Mon Aug 12 18:27:31 2024 +0530
+
+    completed the forgetpassword page and working on the signup
+
+[33mcommit dd024d0fabe20a8edeb97410ebc3b548c82491f8[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Mon Aug 12 16:44:09 2024 +0530
+
+    created the forgetpassword page
+
+[33mcommit 6d54604627b75fda6b73fd9d316fe19081746045[m
+Author: unknown <anshuman.mishra@adixoo.com>
+Date:   Mon Aug 12 15:45:01 2024 +0530
+
+    starting with the HRone_Frontend
+<!-- This is my clander  -->
+import React, { useState } from 'react';
+import {
+  format,
+  startOfMonth,
+  endOfMonth,
+  startOfWeek,
+  endOfWeek,
+  addDays,
+  isSameMonth,
+  subMonths,
+  addMonths,
+  getDay,
+  parseISO,
+  differenceInMinutes
+} from 'date-fns';
+import "./MyCalender.css";
+import CalenderHeader from './CalenderHeader';
+import { useColor } from '../colorcontext/ColorContext';
+
+// JSON data embedded in the same file
+const calendarData = {
+  "punchTimes": {
+    "2024-08-01": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-02": { "punchIn": "8:30 AM", "punchOut": "4:30 PM" },
+    "2024-08-05": { "punchIn": "9:15 AM", "punchOut": "5:15 PM" },
+    "2024-08-06": { "punchIn": "8:45 AM", "punchOut": "5:00 PM" },
+    "2024-08-07": { "punchIn": "9:00 AM", "punchOut": "5:30 PM" },
+    "2024-08-08": { "punchIn": "9:30 AM", "punchOut": "5:00 PM" },
+    "2024-08-09": { "punchIn": "8:00 AM", "punchOut": "4:00 PM" },
+    "2024-08-12": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-13": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-14": { "punchIn": "8:30 AM", "punchOut": "4:30 PM" },
+    "2024-08-15": { "punchIn": "9:15 AM", "punchOut": "5:15 PM" },
+    "2024-08-16": { "punchIn": "8:45 AM", "punchOut": "5:00 PM" },
+    "2024-08-19": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-20": { "punchIn": "9:30 AM", "punchOut": "5:00 PM" },
+    "2024-08-21": { "punchIn": "8:00 AM", "punchOut": "4:00 PM" },
+    "2024-08-22": {},
+    "2024-08-23": {},
+    "2024-08-26": {},
+    "2024-08-27": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-28": { "punchIn": "8:45 AM", "punchOut": "5:00 PM" },
+    "2024-08-29": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" },
+    "2024-08-30": { "punchIn": "9:00 AM", "punchOut": "5:00 PM" }
+  },
+  "weekendStatus": {
+    "WO": { "bgColor": "bg-gray-400", "textColor": "text-white" },
+    "P": { "bgColor": "bg-green-500", "textColor": "text-white" },
+    "A": { "bgColor": "bg-red-500", "textColor": "text-white" },
+    "Holiday": { "bgColor": "bg-amber-300", "textColor": "text-white" }
+  }
+};
+
+const parseTime = (timeString) => {
+  const [time, modifier] = timeString.split(' ');
+  let [hours, minutes] = time.split(':').map(Number);
+  if (modifier === 'PM' && hours < 12) hours += 12;
+  if (modifier === 'AM' && hours === 12) hours = 0;
+  return new Date(2000, 0, 1, hours, minutes);
+};
+
+const calculateWorkingHours = (punchIn, punchOut) => {
+  const punchInDate = parseTime(punchIn);
+  const punchOutDate = parseTime(punchOut);
+  const diffInMinutes = differenceInMinutes(punchOutDate, punchInDate);
+  const hours = Math.floor(diffInMinutes / 60);
+  const minutes = diffInMinutes % 60;
+  return `${hours}h ${minutes}m`;
+};
+
+const MyCalender = () => {
+  const { color } = useColor();
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  // Days of the week
+  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  // Render the days of the week
+  const renderDaysOfWeek = () => {
+    return daysOfWeek.map((day, index) => (
+      <div key={index} className="text-center font-semibold p-2 border-b-2 border-gray-200">
+        {day}
+      </div>
+    ));
+  };
+
+  // Render the cells for each day of the month
+  const renderCells = () => {
+    const monthStart = startOfMonth(currentDate);
+    const monthEnd = endOfMonth(monthStart);
+    const startDate = startOfWeek(monthStart);
+    const endDate = endOfWeek(monthEnd);
+
+    const rows = [];
+    let days = [];
+    let day = startDate;
+
+    while (day <= endDate) {
+      for (let i = 0; i < 7; i++) {
+        const formattedDate = format(day, 'd');
+        const formattedDateISO = format(day, 'yyyy-MM-dd'); // Convert to ISO format for JSON key
+        const isCurrentMonth = isSameMonth(day, monthStart);
+        const isWeekend = getDay(day) === 0 || getDay(day) === 6;
+
+        // Get punch-in and punch-out times from JSON data
+        const punchInTime = calendarData.punchTimes[formattedDateISO]?.punchIn || "";
+        const punchOutTime = calendarData.punchTimes[formattedDateISO]?.punchOut || "";
+        const punchTimeRange = punchInTime && punchOutTime ? `${punchInTime} - ${punchOutTime}` : "";
+        const workingHours = punchInTime && punchOutTime ? calculateWorkingHours(punchInTime, punchOutTime) : "";
+
+        // Determine presence status and weekend status
+        const hasPunchTime = punchInTime && punchOutTime;
+        const presenceStatus = hasPunchTime ? 'P' : 'A';
+        const presenceColor = hasPunchTime ? calendarData.weekendStatus.P.bgColor : calendarData.weekendStatus.A.bgColor;
+        const weekendStatus = isWeekend ? 'WO' : presenceStatus;
+        const weekendColor = isWeekend ? calendarData.weekendStatus.WO.bgColor : presenceColor; // Grey background for weekends
+
+        // Check if the day is a holiday
+        const isHoliday = formattedDateISO === '2024-08-15' || formattedDateISO === '2024-08-19';
+        const holidayColor = isHoliday ? calendarData.weekendStatus.Holiday.bgColor : weekendColor;
+
+        days.push(
+          <div
+            className={`relative flex flex-col items-center justify-between p-6 text-center cursor-pointer border border-gray-300 ${isCurrentMonth ? (isHoliday ? holidayColor : (isWeekend ? weekendColor : 'bg-white')) : (isHoliday ? holidayColor : (isWeekend ? weekendColor : 'bg-gray-200 text-gray-400'))}`}
+            key={day}
+          >
+            <span>{formattedDate}</span>
+            {isCurrentMonth && (
+              <>
+                {!isHoliday && (
+                  <>
+                    <div className={`absolute bottom-1 right-1 w-6 h-6 flex items-center justify-center rounded-full text-white ${weekendColor}`}>
+                      {weekendStatus}
+                    </div>
+                    {punchTimeRange && !isWeekend && (
+                      <div className="text-xs text-gray-600 mt-2">
+                        {punchTimeRange}
+                        <div className="text-xs text-gray-600">
+                         Total Hours: {workingHours}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                )}
+              </>
+            )}
+          </div>
+        );
+        day = addDays(day, 1);
+      }
+      rows.push(<div className="grid grid-cols-7" key={day}>{days}</div>);
+      days = [];
+    }
+    return <div>{rows}</div>;
+  };
+
+  return (
+    <div className='w-4/5 mt-14 mx-auto'>
+      <CalenderHeader
+        currentDate={currentDate}
+        setCurrentDate={setCurrentDate}
+        subMonths={() => setCurrentDate(subMonths(currentDate, 1))}
+        addMonths={() => setCurrentDate(addMonths(currentDate, 1))}
+        format={format}
+      />
+       <div className="flex items-center justify-center mb-4">
+          <button
+            onClick={() => setCurrentDate(subMonths(currentDate, 1))}
+            className="px-4 py-2 text-white rounded"
+            style={{ backgroundColor: color }}
+          >
+            Prev
+          </button>
+          <h2 className="text-xl font-semibold mx-2">
+            {format(currentDate, 'MMMM yyyy')}
+          </h2>
+          <button
+            onClick={() => setCurrentDate(addMonths(currentDate, 1))}
+            className="px-4 py-2 text-white rounded"
+            style={{ backgroundColor: color }}
+          >
+            Next
+          </button>
+        </div>
+      <div className="grid grid-cols-7 gap-px text-center font-semibold">
+        {renderDaysOfWeek()}
+      </div>
+      {renderCells()}
+    </div>
+  );
+};
+
+export default MyCalender;
+
+
+
+    <!-- thid is indicator  -->
+
+
+ <div className="mt-4 flex flex-wrap gap-6 ml-2">
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+              <p className="text-sm">Today</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-green-500 mr-2"></span>
+              <p className="text-sm">Present</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>
+              <p className="text-sm">Leave</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-red-500 mr-2"></span>
+              <p className="text-sm">Absent</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-purple-500 mr-2"></span>
+              <p className="text-sm">Week off</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-gray-500 mr-2"></span>
+              <p className="text-sm">Holiday</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-orange-500 mr-2"></span>
+              <p className="text-sm">Home</p>
+            </div>
+            <div className="flex items-center">
+              <span className="w-3 h-3 rounded-full bg-teal-500 mr-2"></span>
+              <p className="text-sm">Office</p>
+            </div>
+          </div>

@@ -80,7 +80,7 @@ const CalenderHeader = () => {
   const { leftSection, middleSection, attendanceDropdown, rightDropdown } = data;
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white shadow-md w-full h-32 rounded-lg">
+    <div className="flex items-center justify-between p-4  bg-white shadow-md w-full h-32 rounded-lg mt-2 ml-4 mr-4">
       {/* Left Section */}
       <div className="flex flex-col items-start">
         <p className="font-bold text-lg">{leftSection.title}</p>

@@ -1,0 +1,21 @@
+.relative {
+    position: relative;
+  }
+  .text-xs {
+    font-size: 0.75rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  
+  .calendar-body {
+    height: 380px;
+    overflow-y: auto;
+  }
+  
+  .calendar-cell {
+    height: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+  

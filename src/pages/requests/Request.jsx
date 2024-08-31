@@ -25,8 +25,8 @@ function Request() {
     <div className="fixed w-full h-full bg-[url('/requests.png')] bg-cover bg-no-repeat flex">
       {/* Sidebar */}
       <div className='flex flex-col w-[20vw] h-full shadow-[0_0_10px_0_rgba(0,0,0,0.2)] border border-black'>
-        <div className='p-2 border-b-[1px] border-gray-700'>
-          <button className='px-3 py-2 rounded text-white mt-12 w-[70%] ml-16'
+        <div className='p-2 border-b-[1px] border-gray-700 pt-5'>
+          <button className='px-3 py-2 rounded text-white mt-12 w-[70%] ml-16 '
           style={{backgroundColor:color}}
           >NEW REQUEST</button>
         </div>

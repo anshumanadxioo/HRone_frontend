@@ -46,7 +46,7 @@ const Inbox = () => {
           <div className="w-full p-6 bg-white shadow-2xl rounded-lg mb-6">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold">Calendar</h2>
-              <NavLink to="/home/calender"
+              <NavLink to="calender"
               >
                 <p className="font-semibold cursor-pointer text-sky-800">Go to calendar</p>
               </NavLink>

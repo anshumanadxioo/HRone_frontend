@@ -126,7 +126,7 @@ const MyCalender = () => {
                     </div>
                     {punchTimeRange && !isWeekend && (
                       <div className="text-xs text-gray-600 mt-2">
-                        {punchTimeRange}
+                     10:30 - 8:00
                         <div className="text-xs text-gray-600">
                           Total Hours: {workingHours}
                         </div>
@@ -155,7 +155,26 @@ const MyCalender = () => {
         addMonths={() => setCurrentDate(addMonths(currentDate, 1))}
         format={format}
       />
-      <div className='mt-7 border-2 border-gray-300 overflow-hidden  ml-4 mr-4'>
+        <div className="flex items-center justify-center mb-4 mt-5 ">
+        <button
+          onClick={() => setCurrentDate(subMonths(currentDate, 1))}
+          className="px-4 py-2 text-white rounded"
+          style={{ backgroundColor: color }}
+        >
+          Prev
+        </button>
+        <h2 className="text-xl font-semibold mx-2">
+          {format(currentDate, 'MMMM yyyy')}
+        </h2>
+        <button
+          onClick={() => setCurrentDate(addMonths(currentDate, 1))}
+          className="px-4 py-2 text-white rounded"
+          style={{ backgroundColor: color }}
+        >
+          Next
+        </button>
+      </div>
+   <div className='mt-7 border-2 border-gray-300 overflow-hidden'>
         <div className='days-header grid grid-cols-7'>{renderDaysOfWeek()}</div>
         <div className="calendar-body h-96 overflow-y-auto">{renderCells()}</div>
       </div>

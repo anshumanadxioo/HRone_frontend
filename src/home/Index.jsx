@@ -15,6 +15,7 @@ function Index() {
         <UserFeed/>
         <Inbox />
         </div> 
+        <Outlet/>
     </div>
   )
 }

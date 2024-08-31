@@ -22,10 +22,10 @@ function App() {
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/forgetpassword' element={<Forgetpassword />} />
-      <Route path='/home/calender' element={<BigCalenderSection/>} />
-
       <Route path='/' element={<Layout />}>
-        <Route path='home' element={<Index />} />
+        <Route path='home' element={<Index />} >
+        </Route>
+        <Route path='home/calender' element={<BigCalenderSection />} />
         <Route path='socialprofile' element={<SocialProfile />} />
         <Route path='requests' element={<Request />}>
           <Route path='Pending' element={<Pending />} />
@@ -35,7 +35,7 @@ function App() {
           <Route path='Undo' element={<Undo />} />
         </Route>
         <Route path='inbox' element={<Inbox />} />
-       
+
       </Route>
     </Routes>
   )

@@ -5,65 +5,71 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function SignUp() {
-  const [formData, setformData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmpassword: ""
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '' // Updated to match the naming in the backend
   });
 
   const handleChange = (e) => {
-    setformData((oldstate) => ({
-      ...oldstate,
+    setFormData((oldState) => ({
+      ...oldState,
       [e.target.name]: e.target.value
     }));
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      console.log(formData);
-      const result = await registerUser(formData);
-      console.log("Registration successful");
-    } catch (err) {
-      console.log("Registration failed", err.response.data.message);
+
+    console.log('Password:', formData.password);
+    console.log('Confirm Password:', formData.confirmPassword);
+
+    if (formData.password.trim() !== formData.confirmPassword.trim()) {
+      toast.error('Passwords do not match');
+      return;
     }
-  }
+
+    try {
+      const result = await registerUser(formData);
+      console.log('Registration successful', result);
+      toast.success('Registration successful');
+      navigate('/login');
+    } catch (err) {
+      console.error('Registration failed', err.message);
+      toast.error(`Registration failed: ${err.response?.data?.message || err.message}`);
+    }
+  };
 
   const navigate = useNavigate();
-  const handleClick = () => {
-    navigate('/login');
-  }
 
-  const REGISTER_URL = 'https://tzqnlpfh-3000.inc1.devtunnels.ms/register';
+  const REGISTER_URL = 'http://localhost:3000/register';
 
   const registerUser = async (formData) => {
     try {
       const res = await axios.post(REGISTER_URL, formData);
-      console.log(res.data);
-      toast.success("registered successfully")
       return res.data;
     } catch (err) {
-      console.log("Error while registering user", err.message);
-      toast.error("Error",err.message)
       throw err;
     }
-  }
+  };
 
   return (
     <div className='flex w-full h-screen responsive-main_div'>
       {/* Left Side */}
       <div className='md:w-[50vw] flex flex-col items-center justify-center p-4 bg-white-400 shadow-lg'>
         <h1 className='text-2xl font-bold mb-1'>Get Started Now</h1>
-        
+
         <form className='w-full max-w-sm' onSubmit={handleSubmit}>
           <div className='mb-2'>
-            <label htmlFor='name' className='block text-sm font-medium text-gray-700 mb-1'>Name</label>
+            <label htmlFor='name' className='block text-sm font-medium text-gray-700 mb-1'>
+              Name
+            </label>
             <input
               id='name'
               placeholder='Enter Name'
               type='text'
-              name="name"
+              name='name'
               required
               className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
               value={formData.name}
@@ -72,7 +78,9 @@ function SignUp() {
           </div>
 
           <div className='mb-2'>
-            <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-1'>Email Address</label>
+            <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-1'>
+              Email Address
+            </label>
             <input
               id='email'
               placeholder='Enter Email'
@@ -86,11 +94,13 @@ function SignUp() {
           </div>
 
           <div className='mb-2'>
-            <label htmlFor='password' className='block text-sm font-medium text-gray-700 mb-1'>Password</label>
+            <label htmlFor='password' className='block text-sm font-medium text-gray-700 mb-1'>
+              Password
+            </label>
             <input
               id='password'
               placeholder='Enter Password'
-              type='password'  // Changed to 'password'
+              type='password'
               name='password'
               required
               className='w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
@@ -100,21 +110,23 @@ function SignUp() {
           </div>
 
           <div className='mb-2'>
-            <label htmlFor='confirmpassword' className='block text-sm font-medium text-gray-700 mb-1'>Confirm Password</label>
+            <label htmlFor='confirmPassword' className='block text-sm font-medium text-gray-700 mb-1'>
+              Confirm Password
+            </label>
             <input
-              id='confirmpassword'
+              id='confirmPassword'
               placeholder='Enter Password again'
-              type='password'  // Changed to 'password'
-              name='confirmpassword'
+              type='password'
+              name='confirmPassword' // Updated to match the naming in the backend
               required
               className='w-full px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900'
-              value={formData.confirmpassword}
+              value={formData.confirmPassword}
               onChange={handleChange}
             />
           </div>
 
           <div className='flex items-center mb-2'>
-            <input type='checkbox' id='terms' required className='h-4 w-4 text-gren-900 focus:ring-green-900 border-gray-300 rounded' />
+            <input type='checkbox' id='terms' required className='h-4 w-4 text-green-900 focus:ring-green-900 border-gray-300 rounded' />
             <label htmlFor='terms' className='ml-2 text-sm text-gray-600'>
               I agree to the <span className='underline cursor-pointer hover:text-green-950'>terms &amp; policy</span>
             </label>
@@ -135,7 +147,7 @@ function SignUp() {
 
           <div className='mt-3 flex justify-between responsive-signinoption-res'>
             <div className='flex ml-2 pb-2 cursor-pointer'>
-              <FaGoogle className='text-2xl mr-2 ' />
+              <FaGoogle className='text-2xl mr-2' />
               Sign in with Google
             </div>
             <div className='flex mr-4 ml-4 cursor-pointer'>
@@ -144,13 +156,13 @@ function SignUp() {
             </div>
           </div>
 
-          <p className='ml-20 mt-2'>Have an account?
-            <span className='text-blue-800 cursor-pointer' onClick={handleClick}>Login In</span>
+          <p className='ml-20 mt-2'>
+            Have an account? <span className='text-blue-800 cursor-pointer' onClick={() => navigate('/login')}>Log In</span>
           </p>
         </form>
       </div>
 
-      <div className=''>
+      <div>
         <img src='/login.png' loading='lazy' alt='Login' className='md:h-[100vh] md:w-[50vw] lg:object-fill' />
       </div>
     </div>

@@ -2,47 +2,56 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { FaApple, FaGoogle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { axoisInstance } from '../../axiosConfig';
 import { toast } from 'react-toastify';
 
 function LoginPage() {
-  const [login, setlogin] = useState({
-    email:'',
-    password:''
-  })
-  const[error,setError]=useState('')
-  const navigate=useNavigate();
-  const handleChange=(e)=>{
-    setlogin((oldState)=>({
-      ...oldState,
-      [e.target.name]:e.target.value
-    }))
-  }
-  const get_Login=async(data)=>{
-  try{
-    const res=await axoisInstance.post('/login',data);
-    console.log(res.data.token,"login token");
-    localStorage.setItem('token',res.data.token);
-    toast.success("login successfully");
-    navigate('/home')
-  }
-  catch(error){
-   if(error.message){
-    toast.error("Error")
-    setError(error.message);
-   }
-   else{
-    setError('An error occured please try again')
-   }
-    
-  }
-  }
-  const handleSubmit=(event)=>{
-   event.preventDefault();
+  const [login, setLogin] = useState({
+    email: '',
+    password: ''
+  });
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
 
-   console.log(login);
-   get_Login(login);
-  }
+  // Handle input change
+  const handleChange = (e) => {
+    setLogin((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  // Function to send login data to backend API
+  const get_Login = async (data) => {
+    try {
+      const res = await axios.post('http://localhost:3000/login', data);
+      console.log(res.data.token, "login token");
+
+      // Store the token in local storage
+      localStorage.setItem('token', res.data.token);
+
+      // Show success message and navigate to home page
+      toast.success("Login successful");
+      navigate('/home');
+    } catch (error) {
+      // Handle errors
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        toast.error(error.response.data.message || "Error occurred during login");
+        setError(error.response.data.message || "Error occurred during login");
+      } else {
+        // Something else happened while setting up the request
+        toast.error("An error occurred. Please try again.");
+        setError('An error occurred. Please try again.');
+      }
+    }
+  };
+
+  // Handle form submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    get_Login(login);
+  };
+
   return (
     <div className='flex w-full h-screen'>
       {/* Left Side */}
@@ -97,9 +106,9 @@ function LoginPage() {
           <button
             type='submit'
             className={`w-[404px] h-[35.4px] text-white font-semibold rounded-lg shadow-md
-               ${error?'bg-red-600 border border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-900'
-                :'bg-[#3A5B22] border border-[#3A5B22] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
-                } 
+               ${error ? 'bg-red-600 border border-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-900'
+                : 'bg-[#3A5B22] border border-[#3A5B22] hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-900'
+              } 
                `}
           >
             Login

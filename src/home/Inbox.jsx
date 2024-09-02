@@ -24,7 +24,7 @@ const Inbox = () => {
     };
 
     fetchLeaveBalance();
-  }, []);
+  }, []); 
 
   return (
     <>

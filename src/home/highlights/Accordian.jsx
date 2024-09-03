@@ -14,7 +14,8 @@ import { BiCalendarEvent, BiSolidBullseye, BiSolidParty } from "react-icons/bi";
 import './scrollbar.css'
 import { useColor } from "../../pages/colorcontext/ColorContext";
 import { axoisInstance } from "../../axiosConfig";
-import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
+import { Tabs, Tab, Card, CardBody } from "@nextui-org/react";
+import axios from "axios";
 function Icon({ id, open }) {
   return (
     <svg
@@ -32,39 +33,53 @@ function Icon({ id, open }) {
 
 export default function HighlightAccordion() {
   const { color } = useColor();
-
   const [open, setOpen] = useState(0);
+  const [peopleOnLeave, setPeopleOnLeave] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [coreValues, setcoreValues] = useState([])
-  const [birthday, setbirthday] = useState([])
-  const [activetab, setactivetab] = useState('')
+  const [coreValues, setCoreValues] = useState([]);
+  const [birthday, setBirthday] = useState([]);
+
+
   const toggleReferTalent = () => {
     setIsOpen(!isOpen);
     console.log("calling the function");
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
-  const ourcore_values=async()=>{
-   try{
-    const response= await axoisInstance.get('/core-values');
-    setcoreValues(response.data);
-   }catch(err){
-    console.log("your error is:-",err.response.data.message)
-   }
-  }
-  const gettingthe_birthday=async()=>{
-   try{
-    const response= await axoisInstance.get('/check-birthdays');
-    setbirthday(response.data.messages);
-    // console.log(response.data.messages,"birhtday")
-   }catch(err){
-    console.log("your error is:-",err.message)
-   }
-  }
-  useEffect(()=>{
-    ourcore_values();
-    gettingthe_birthday();
-  },[])
+
+  const fetchCoreValues = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/core-values');
+      setCoreValues(response.data);
+    } catch (err) {
+      console.log("Error fetching core values:", err.response?.data?.message || err.message);
+    }
+  };
+
+
+  const getPeopleOnLeaveToday = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/leave/today');
+      setPeopleOnLeave(response.data.names);
+    } catch (err) {
+      console.log("Error fetching people on leave today:", err.response?.data?.message || err.message);
+    }
+  };
+
+  const getBirthdays = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/check-birthdays');
+      setBirthday(response.data.messages);
+    } catch (err) {
+      console.log("Error fetching birthdays:", err.response?.data?.message || err.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchCoreValues();
+    getBirthdays();
+    getPeopleOnLeaveToday();
+  }, []);
   return (
     <>
       <div className="ml-[64px] h-[100vh]">
@@ -86,12 +101,12 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-7 text-sm">Today's Celebration</p>
-                  <p className="text-sm text-start ml-8 text-gray-500">{birthday?.length}celebration</p>
+                  <p className="text-sm text-start ml-8 text-gray-500">{birthday?.length} celebration</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-            {birthday?.length > 0 ? (
+              {birthday?.length > 0 ? (
                 birthday?.map((item, index) => (
                   <div className="ml-5" key={index}>
                     <p className="text-slate-500 font-semibold mr-2">{item}</p>
@@ -119,37 +134,37 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-6 text-sm">
-                  Mission statement</p>
+                    Mission statement</p>
                   <p className="text-sm text-start ml-6 text-gray-500">Vision,mission and purpose</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-            <div className="flex w-full flex-col">
-      <Tabs aria-label="Options">
-        <Tab key="Vision" title="Vision" className="border-2 rounded">
-          <Card className="mt-2">
-            <CardBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </CardBody>
-          </Card>  
-        </Tab>
-        <Tab key="mission" title="mission">
-          <Card>
-            <CardBody>
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </CardBody>
-          </Card>  
-        </Tab>
-        <Tab key="purpose" title="purpose">
-          <Card>
-            <CardBody>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </CardBody>
-          </Card>  
-        </Tab>
-      </Tabs>
-    </div>  
+              <div className="flex w-full flex-col">
+                <Tabs aria-label="Options">
+                  <Tab key="Vision" title="Vision" className="border-2 rounded">
+                    <Card className="mt-2">
+                      <CardBody>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      </CardBody>
+                    </Card>
+                  </Tab>
+                  <Tab key="mission" title="mission">
+                    <Card>
+                      <CardBody>
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                      </CardBody>
+                    </Card>
+                  </Tab>
+                  <Tab key="purpose" title="purpose">
+                    <Card>
+                      <CardBody>
+                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                      </CardBody>
+                    </Card>
+                  </Tab>
+                </Tabs>
+              </div>
             </AccordionBody>
           </Accordion>
 
@@ -169,17 +184,23 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-[3px] text-sm">People on Leave Today</p>
-                  <p className="text-sm text-start ml-1 text-gray-500">0 Members</p>
+                  <p className="text-sm text-start ml-1 text-gray-500">{peopleOnLeave.length} Members</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              <div className="flex justify-between">
-                <div className="ml-2">image</div>
-                <p className="text-slate-500 mr-2">No leave applied for today</p>
-              </div>
+              {peopleOnLeave.length > 0 ? (
+                peopleOnLeave.map((name, index) => (
+                  <div className="ml-5" key={index}>
+                    <p className="text-slate-500 font-semibold mr-2">{name}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No leave applied for today</p>
+              )}
             </AccordionBody>
           </Accordion>
+
 
           {/* Accordion Item 4 */}
           <Accordion
@@ -201,7 +222,7 @@ export default function HighlightAccordion() {
                     <p className="text-sm text-start ml-6 text-gray-500 w-[100px]">0 referrals|0 IJP</p>
                   </div>
                   <button
-                    className=" h-[40px] w-[70px] border text-center border-green-900 bg-transparent  text-sm  ml-1  rounded transition-colors duration-300 hover:bg-green- text-white"
+                    className=" h-[44px] w-[70px]  border text-center border-green-900 bg-transparent  text-sm  ml-1  rounded transition-colors duration-300 hover:bg-green- text-white"
                     onClick={toggleReferTalent}
                     style={{ backgroundColor: color }}
                   >
@@ -239,10 +260,14 @@ export default function HighlightAccordion() {
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              <div className="">
-                <div className="ml-2 font-semibold ">Title:-{coreValues[0]?.title}</div>
-                <p className="text-slate-500 ml-2"><span className="font-semibold">Description</span>:-{coreValues[0]?.description}</p>
-              </div>
+              {coreValues.length > 0 ? (
+                <div className="">
+                  <div className="ml-2 font-semibold text-xl"> {coreValues[0]?.title}</div>
+                  <p className="text-slate-500 ml-2 text-base"><span className="font-semibold"></span> {coreValues[0]?.description}</p>
+                </div>
+              ) : (
+                <p>No core values available</p>
+              )}
             </AccordionBody>
           </Accordion>
         </div>

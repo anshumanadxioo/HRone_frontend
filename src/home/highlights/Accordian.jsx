@@ -38,6 +38,10 @@ export default function HighlightAccordion() {
   const [isOpen, setIsOpen] = useState(false);
   const [coreValues, setCoreValues] = useState([]);
   const [birthday, setBirthday] = useState([]);
+  const [purpose, setPurpose] = useState("");
+  const [mission, setMission] = useState("");
+  const [vision, setVision] = useState("");
+
 
 
   const toggleReferTalent = () => {
@@ -46,6 +50,22 @@ export default function HighlightAccordion() {
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const fetchCompanyInfo = async () => {
+    try {
+      const [purposeResponse, missionResponse, visionResponse] = await Promise.all([
+        axios.get('http://localhost:3000/company-info/Purpose'),
+        axios.get('http://localhost:3000/company-info/Mission'),
+        axios.get('http://localhost:3000/company-info/Vision'),
+      ]);
+
+      setPurpose(purposeResponse.data.content || "");
+      setMission(missionResponse.data.content || "");
+      setVision(visionResponse.data.content || "");
+    } catch (err) {
+      console.log("Error fetching company info:", err.response?.data?.message || err.message);
+    }
+  };
+
 
   const fetchCoreValues = async () => {
     try {
@@ -60,32 +80,33 @@ export default function HighlightAccordion() {
   const getPeopleOnLeaveToday = async () => {
     try {
       const response = await axios.get('http://localhost:3000/leave/today');
-      setPeopleOnLeave(response.data.names || []); // Fallback to empty array
+      setPeopleOnLeave(response.data.names || []); 
     } catch (err) {
       console.log("Error fetching people on leave today:", err.response?.data?.message || err.message);
     }
   };
-  
+
   const getBirthdays = async () => {
     try {
       const response = await axios.get('http://localhost:3000/check-birthdays');
-      setBirthday(response.data.messages || []); // Fallback to empty array
+      setBirthday(response.data.messages || []); 
     } catch (err) {
       console.log("Error fetching birthdays:", err.response?.data?.message || err.message);
     }
   };
-  
+
 
   useEffect(() => {
     fetchCoreValues();
     getBirthdays();
     getPeopleOnLeaveToday();
+    fetchCompanyInfo();
   }, []);
-  
+
   console.log("Birthday data:", birthday);
   console.log("People on leave:", peopleOnLeave);
   console.log("Core values data:", coreValues);
-  
+
   return (
     <>
       <div className="ml-[64px] h-[100vh]">
@@ -141,7 +162,7 @@ export default function HighlightAccordion() {
                 <div className="flex flex-col">
                   <p className="ml-6 text-sm">
                     Mission statement</p>
-                  <p className="text-sm text-start ml-6 text-gray-500">Vision,mission and purpose</p>
+                  <p className="text-sm text-start ml-6 text-gray-500">Vision,Mission and Purpose</p>
                 </div>
               </div>
             </AccordionHeader>
@@ -151,21 +172,21 @@ export default function HighlightAccordion() {
                   <Tab key="Vision" title="Vision" className="border-2 rounded">
                     <Card className="mt-2">
                       <CardBody>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        {vision || "Loading..."}
                       </CardBody>
                     </Card>
                   </Tab>
-                  <Tab key="mission" title="mission">
+                  <Tab key="mission" title="Mission">
                     <Card>
                       <CardBody>
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                        {mission || "Loading..."}
                       </CardBody>
                     </Card>
                   </Tab>
-                  <Tab key="purpose" title="purpose">
+                  <Tab key="purpose" title="Purpose">
                     <Card>
                       <CardBody>
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        {purpose || "Loading..."}
                       </CardBody>
                     </Card>
                   </Tab>

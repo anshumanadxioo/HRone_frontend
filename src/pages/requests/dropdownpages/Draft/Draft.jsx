@@ -7,7 +7,7 @@ function Draft() {
   const [draftRegularizationRequests, setDraftRegularizationRequests] = useState([]);
 
   useEffect(() => {
-    // Fetch draft requests from API
+    
     axios.get('http://localhost:3000/draft-requests')
       .then(response => {
         const { draftLeaveRequests, draftRegularizationRequests } = response.data;

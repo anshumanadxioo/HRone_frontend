@@ -5,7 +5,7 @@ function Rejected() {
   const [isRejected, setIsRejected] = useState(false);
 
   useEffect(() => {
-    // Fetch the rejected requests from the API
+   
     const fetchRejectedRequests = async () => {
       try {
         const response = await fetch('http://localhost:3000/rejected-requests');

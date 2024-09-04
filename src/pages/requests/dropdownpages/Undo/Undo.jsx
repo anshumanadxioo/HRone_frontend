@@ -5,18 +5,18 @@ function Undo() {
   const [undoRequests, setUndoRequests] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the API
+    
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3000/undo-requests');
         const data = await response.json();
 
-        // Merge the undoLeaveRequests and undoRegularizationRequests into one array
+       
         const combinedRequests = [
           ...data.undoLeaveRequests.map(item => ({
             id: item.id,
             type: 'Leave',
-            user: `User ID: ${item.user_id}`, // Adjust this to show the actual user name if available
+            user: `User ID: ${item.user_id}`,
             date: new Date(item.start_date).toLocaleDateString(),
             reason: item.comments,
             status: item.status
@@ -24,7 +24,7 @@ function Undo() {
           ...data.undoRegularizationRequests.map(item => ({
             id: item.id,
             type: 'Attendance Regularization',
-            user: `User ID: ${item.user_id}`, // Adjust this to show the actual user name if available
+            user: `User ID: ${item.user_id}`,
             date: new Date(item.start_date).toLocaleDateString(),
             reason: item.comments,
             status: item.status

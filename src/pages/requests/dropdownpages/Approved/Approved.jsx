@@ -10,18 +10,18 @@ function Approved() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   useEffect(() => {
-    // Fetch data from the API
+    
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:3000/approved-requests');
         const data = await response.json();
 
-        // Assuming the API response has a structure with approvedLeaveRequests and approvedRegularizationRequests
+     
         const combinedRequests = [
           ...data.approvedLeaveRequests.map(req => ({
             id: req.id,
             type: 'Leave Request',
-            user: req.user_id, // Adjust according to your data
+            user: req.user_id,
             time: new Date().toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
@@ -29,12 +29,12 @@ function Approved() {
               hour12: true
             }),
             Date: new Date(req.start_date).toLocaleDateString(),
-            By: 'Unknown' // Adjust if necessary
+            By: 'Unknown' 
           })),
           ...data.approvedRegularizationRequests.map(req => ({
             id: req.id,
             type: 'Regularization Request',
-            user: req.user_id, // Adjust according to your data
+            user: req.user_id, 
             time: new Date().toLocaleTimeString([], {
               hour: '2-digit',
               minute: '2-digit',
@@ -42,7 +42,7 @@ function Approved() {
               hour12: true
             }),
             Date: new Date(req.start_date).toLocaleDateString(),
-            By: 'Unknown' // Adjust if necessary
+            By: 'Unknown' 
           }))
         ];
 

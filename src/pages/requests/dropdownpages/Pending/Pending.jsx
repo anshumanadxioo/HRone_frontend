@@ -7,7 +7,7 @@ function Pending() {
     const [pendingTask, setPendingTask] = useState(false);
 
     useEffect(() => {
-        // Fetch the data from API
+       
         axios.get('http://localhost:3000/pending-requests')
             .then(response => {
                 const { leaveRequests, regularizationRequests } = response.data;

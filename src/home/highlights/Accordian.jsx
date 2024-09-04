@@ -60,26 +60,32 @@ export default function HighlightAccordion() {
   const getPeopleOnLeaveToday = async () => {
     try {
       const response = await axios.get('http://localhost:3000/leave/today');
-      setPeopleOnLeave(response.data.names);
+      setPeopleOnLeave(response.data.names || []); // Fallback to empty array
     } catch (err) {
       console.log("Error fetching people on leave today:", err.response?.data?.message || err.message);
     }
   };
-
+  
   const getBirthdays = async () => {
     try {
       const response = await axios.get('http://localhost:3000/check-birthdays');
-      setBirthday(response.data.messages);
+      setBirthday(response.data.messages || []); // Fallback to empty array
     } catch (err) {
       console.log("Error fetching birthdays:", err.response?.data?.message || err.message);
     }
   };
+  
 
   useEffect(() => {
     fetchCoreValues();
     getBirthdays();
     getPeopleOnLeaveToday();
   }, []);
+  
+  console.log("Birthday data:", birthday);
+  console.log("People on leave:", peopleOnLeave);
+  console.log("Core values data:", coreValues);
+  
   return (
     <>
       <div className="ml-[64px] h-[100vh]">

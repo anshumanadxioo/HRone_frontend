@@ -15,7 +15,7 @@ const Inbox = () => {
     // Fetch leave balance data from the API
     const fetchLeaveBalance = async () => {
       try {
-        const response = await fetch('https://tzqnlpfh-3000.inc1.devtunnels.ms/leave-balance?user_id=4');
+        const response = await fetch('http://localhost:3000/leave-balance?user_id=1');
         const data = await response.json();
         setLeaveBalance(data.leaveBalance); // Accessing the leaveBalance from the API response
       } catch (error) {
@@ -24,7 +24,7 @@ const Inbox = () => {
     };
 
     fetchLeaveBalance();
-  }, []); 
+  }, []);
 
   return (
     <>

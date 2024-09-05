@@ -15,7 +15,7 @@ const UserFeed = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('https://tzqnlpfh-3000.inc1.devtunnels.ms/getAll_feed');
+        const response = await axios.get('http://localhost:3000/getAll_feed');
         if (response.data && Array.isArray(response.data)) {
           setPosts(response.data);
         } else {
@@ -52,15 +52,15 @@ const UserFeed = () => {
             <div key={post.id} className="mb-8">
               <div className="flex items-center mb-2">
                 <img
-                  src={post.image_url}
+                  src={post.imageurl || 'https://via.placeholder.com/150'}  // Fallback image if null
                   alt="Profile"
                   className="w-12 h-12 rounded-full object-cover mr-4"
                 />
                 <div className="mt-4">
-                  <p className="font-bold text-base mb-[-3px]">{post.username}</p>
-                  <p className="text-gray-600 text-sm mb-[-3px]">{post.brand}</p>
-                  <p className="text-gray-600 text-sm mb-[-3px]">{post.position}</p>
-                  <p className="text-gray-500 text-sm mb-2">{post.time_ago}</p>
+                  <p className="font-bold text-base mb-[-3px]">{post.username || 'Unknown'}</p> {/* Default value if null */}
+                  <p className="text-gray-600 text-sm mb-[-3px]">{post.brand || 'No Brand'}</p> {/* Default value if null */}
+                  <p className="text-gray-600 text-sm mb-[-3px]">{post.position || 'Position Unknown'}</p> {/* Default value if null */}
+                  <p className="text-gray-500 text-sm mb-2">{post.timeago || 'Time unknown'}</p> {/* Default value if null */}
                 </div>
               </div>
 
@@ -68,7 +68,7 @@ const UserFeed = () => {
 
               <div className="mt-4">
                 <p className="text-gray-700 text-base mb-4">
-                  {post.description}
+                  {post.description || 'No description available'} {/* Default value if null */}
                 </p>
                 <img
                   src={post.photo_url}
@@ -82,7 +82,7 @@ const UserFeed = () => {
               <div className="mt-4">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex space-x-4 text-gray-600">
-                    <span>Cheers: {post.cheers}</span>
+                    <span>Cheers: {post.cheers || 0}</span> {/* Default value if null */}
                     <span>Comments: {post.comments}</span>
                   </div>
                 </div>

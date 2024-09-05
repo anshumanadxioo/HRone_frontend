@@ -41,6 +41,8 @@ export default function HighlightAccordion() {
   const [purpose, setPurpose] = useState("");
   const [mission, setMission] = useState("");
   const [vision, setVision] = useState("");
+  const [yearCelebration, setYearCelebration] = useState("");
+
 
 
 
@@ -50,6 +52,15 @@ export default function HighlightAccordion() {
   };
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+  const fetchYearCelebration = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/year-celebration');
+      setYearCelebration(response.data.message || "");
+    } catch (err) {
+      console.log("Error fetching year celebration:", err.response?.data?.message || err.message);
+    }
+  };
+
   const fetchCompanyInfo = async () => {
     try {
       const [purposeResponse, missionResponse, visionResponse] = await Promise.all([
@@ -80,7 +91,7 @@ export default function HighlightAccordion() {
   const getPeopleOnLeaveToday = async () => {
     try {
       const response = await axios.get('http://localhost:3000/leave/today');
-      setPeopleOnLeave(response.data.names || []); 
+      setPeopleOnLeave(response.data.names || []);
     } catch (err) {
       console.log("Error fetching people on leave today:", err.response?.data?.message || err.message);
     }
@@ -89,7 +100,7 @@ export default function HighlightAccordion() {
   const getBirthdays = async () => {
     try {
       const response = await axios.get('http://localhost:3000/check-birthdays');
-      setBirthday(response.data.messages || []); 
+      setBirthday(response.data.messages || []);
     } catch (err) {
       console.log("Error fetching birthdays:", err.response?.data?.message || err.message);
     }
@@ -101,17 +112,17 @@ export default function HighlightAccordion() {
     getBirthdays();
     getPeopleOnLeaveToday();
     fetchCompanyInfo();
-  }, []);
-
-  console.log("Birthday data:", birthday);
-  console.log("People on leave:", peopleOnLeave);
-  console.log("Core values data:", coreValues);
+    fetchYearCelebration();
+  }, []); 
+    const totalCelebrations = birthday.length + (yearCelebration ? 1 : 0);
+ 
 
   return (
     <>
       <div className="ml-[64px] h-[100vh]">
         <p className="text-[18px] font-semibold mb-3 -ml-3 mt-8 px-5 ">Highlights</p>
         <div className="space-y-4 w-[20vw]">
+
           {/* Accordion Item 1 */}
           <Accordion
             open={open === 1}
@@ -128,19 +139,30 @@ export default function HighlightAccordion() {
                 </div>
                 <div className="flex flex-col">
                   <p className="ml-7 text-sm">Today's Celebration</p>
-                  <p className="text-sm text-start ml-8 text-gray-500">{birthday?.length} celebration</p>
+                  <p className="text-sm text-start ml-8 text-gray-500">{totalCelebrations} celebration{totalCelebrations !== 1 ? 's' : ''}</p>
                 </div>
               </div>
             </AccordionHeader>
             <AccordionBody className="overflow-hidden transition-max-height duration-100 ease-in-out">
-              {birthday?.length > 0 ? (
-                birthday?.map((item, index) => (
-                  <div className="ml-5" key={index}>
-                    <p className="text-slate-500 font-semibold mr-2">{item}</p>
-                  </div>
-                ))
-              ) : (
+              {totalCelebrations === 0 ? (
                 <p>No celebrations today</p>
+              ) : (
+                <>
+                  {birthday.length > 0 && (
+                    <div className="ml-5">
+                      <p className="text-slate-500 font-semibold ml-2">Birthdays:</p>
+                      {birthday.map((item, index) => (
+                        <p className="text-slate-500 ml-2" key={index}>{item}</p>
+                      ))}
+                    </div>
+                  )}
+                  {yearCelebration && (
+                    <div className="ml-5 mt-2">
+                      <p className="text-slate-500 font-semibold ml-2 text-base">Year Celebration:</p>
+                      <p className="text-slate-500 ml-2 whitespace-pre-line">{yearCelebration}</p>
+                    </div>
+                  )}
+                </>
               )}
             </AccordionBody>
           </Accordion>
